@@ -1,0 +1,11 @@
+﻿   Qt/MSBuild: 3.3.1.1
+  Reading Qt configuration (C:/Qt/6.7.3/msvc2022_64/bin/qmake)
+   Qt: 6.7.3
+  uic SLT_W11.ui
+  rcc SLT_W11.qrc
+  moc SLT_W11.h
+  main.cpp
+  SLT_W11.cpp
+  qrc_SLT_W11.cpp
+  moc_SLT_W11.cpp
+  SLT_W11.vcxproj -> C:\Users\balen\CodeSpace\SLT_W11_solution\x64\Debug\SLT_W11.exe
