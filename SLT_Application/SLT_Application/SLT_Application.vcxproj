@@ -94,9 +94,11 @@
   <ItemGroup>
     <QtRcc Include="SLT_Application.qrc" />
     <QtUic Include="AssessorForm.ui" />
+    <QtUic Include="ManageAssessor.ui" />
     <QtUic Include="SLT_Application.ui" />
     <QtMoc Include="SLT_Application.h" />
     <ClCompile Include="AssessorForm.cpp" />
+    <ClCompile Include="ManageAssessor.cpp" />
     <ClCompile Include="SLT_Application.cpp" />
     <ClCompile Include="main.cpp" />
     <None Include="SLT_Application.ico" />
@@ -104,6 +106,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="AssessorForm.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="ManageAssessor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

@@ -49,14 +49,23 @@
     <ClCompile Include="AssessorForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ManageAssessor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="AssessorForm.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="ManageAssessor.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="AssessorForm.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ManageAssessor.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

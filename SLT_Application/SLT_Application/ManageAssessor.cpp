@@ -1,0 +1,1 @@
+#include "ManageAssessor.h"

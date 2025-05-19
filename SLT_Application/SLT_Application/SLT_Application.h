@@ -16,4 +16,5 @@ private:
 
 private slots:
     void on_actionAdd_a_new_assessor_triggered();
+    void on_actionManage_assessor_triggered();
 };

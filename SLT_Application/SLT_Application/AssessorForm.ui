@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>458</width>
-    <height>359</height>
+    <width>720</width>
+    <height>455</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -16,81 +22,162 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QGroupBox" name="personalInformationBox">
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
      <property name="title">
       <string>Personal Information</string>
      </property>
      <layout class="QFormLayout" name="formLayout">
       <item row="0" column="0">
        <widget class="QLabel" name="firstNameLabel">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Firstname</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="firstNameLineedit"/>
+       <widget class="QLineEdit" name="firstNameLineedit">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+       </widget>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="lastNameLabel">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Lastname</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="lastNameLineEdit"/>
+       <widget class="QLineEdit" name="lastNameLineEdit">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+       </widget>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="phoneNumberLabel">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Phone number</string>
         </property>
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QLineEdit" name="phoneNumberLineEdit"/>
+       <widget class="QLineEdit" name="phoneNumberLineEdit">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+       </widget>
       </item>
       <item row="3" column="0">
        <widget class="QLabel" name="emailLabel">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Email</string>
         </property>
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QLineEdit" name="emailLineEdit"/>
+       <widget class="QLineEdit" name="emailLineEdit">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
    </item>
    <item>
     <widget class="QGroupBox" name="addressBox">
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
      <property name="title">
       <string>Address</string>
      </property>
      <layout class="QFormLayout" name="formLayout_2">
       <item row="0" column="0">
        <widget class="QLabel" name="streetLabel">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Street</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="streetLineEdit"/>
+       <widget class="QLineEdit" name="streetLineEdit">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+       </widget>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="cityLabel">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>City</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="cityLineEdit"/>
+       <widget class="QLineEdit" name="cityLineEdit">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+       </widget>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Province</string>
         </property>
@@ -98,6 +185,11 @@
       </item>
       <item row="2" column="1">
        <widget class="QComboBox" name="provinceCbBox">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
         <item>
          <property name="text">
           <string>N/A</string>
@@ -172,13 +264,24 @@
       </item>
       <item row="3" column="0">
        <widget class="QLabel" name="postalCodeLabel">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Postal Code</string>
         </property>
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QLineEdit" name="postalCodeLineEdit"/>
+       <widget class="QLineEdit" name="postalCodeLineEdit">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -203,6 +306,12 @@
      </item>
      <item>
       <widget class="QToolButton" name="btRegister">
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QToolButton {
     background-color: #28a745;
@@ -227,6 +336,12 @@ QToolButton:hover {
      </item>
      <item>
       <widget class="QToolButton" name="btCancel">
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QToolButton {
     background-color: #dc3545;   /* Vermelho escuro */

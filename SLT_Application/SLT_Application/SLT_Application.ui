@@ -10,10 +10,27 @@
     <height>519</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>SLT_Application</string>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralWidget">
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+  </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
@@ -23,7 +40,17 @@
      <height>33</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
    <widget class="QMenu" name="menuAssessor">
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
     <property name="title">
      <string>Assessor</string>
     </property>
@@ -31,6 +58,11 @@
     <addaction name="actionManage_assessor"/>
    </widget>
    <widget class="QMenu" name="menuClient">
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
     <property name="title">
      <string>Client</string>
     </property>
@@ -38,6 +70,11 @@
     <addaction name="actionManger_client"/>
    </widget>
    <widget class="QMenu" name="menuCase_Profile">
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
     <property name="title">
      <string>Case Profile</string>
     </property>
@@ -45,6 +82,11 @@
     <addaction name="actionManage_case_profile"/>
    </widget>
    <widget class="QMenu" name="menuForms">
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
     <property name="title">
      <string>Forms</string>
     </property>
@@ -53,6 +95,11 @@
     <addaction name="actionGenerate_forms"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
     <property name="title">
      <string>Settings</string>
     </property>
@@ -66,6 +113,11 @@
    <addaction name="menuSettings"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
@@ -73,60 +125,121 @@
     <bool>false</bool>
    </attribute>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+  </widget>
   <action name="actionAdd_a_new_assessor">
    <property name="text">
     <string>Add a new assessor</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
    </property>
   </action>
   <action name="actionManage_assessor">
    <property name="text">
     <string>Manage assessor</string>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
   </action>
   <action name="actionAdd_a_new_client">
    <property name="text">
     <string>Add a new client</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
    </property>
   </action>
   <action name="actionManger_client">
    <property name="text">
     <string>Manage client</string>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
   </action>
   <action name="actionCreate_a_new_case_profile">
    <property name="text">
     <string>Create a new case profile</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
    </property>
   </action>
   <action name="actionManage_case_profile">
    <property name="text">
     <string>Manage case profile</string>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
   </action>
   <action name="actionView_forms">
    <property name="text">
     <string>View forms</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
    </property>
   </action>
   <action name="actionMange_forms">
    <property name="text">
     <string>Mange forms</string>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
   </action>
   <action name="actionGenerate_forms">
    <property name="text">
     <string>Generate forms</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
    </property>
   </action>
   <action name="actionMange_Database">
    <property name="text">
     <string>Mange Database</string>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
   </action>
   <action name="actionMain_user">
    <property name="text">
     <string>Main user</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
    </property>
   </action>
  </widget>

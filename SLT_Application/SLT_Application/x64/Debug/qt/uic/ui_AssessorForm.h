@@ -58,50 +58,66 @@ public:
     {
         if (Form->objectName().isEmpty())
             Form->setObjectName("Form");
-        Form->resize(458, 359);
+        Form->resize(720, 455);
+        QSizePolicy sizePolicy(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(Form->sizePolicy().hasHeightForWidth());
+        Form->setSizePolicy(sizePolicy);
         verticalLayout = new QVBoxLayout(Form);
         verticalLayout->setObjectName("verticalLayout");
         personalInformationBox = new QGroupBox(Form);
         personalInformationBox->setObjectName("personalInformationBox");
+        QFont font;
+        font.setPointSize(9);
+        personalInformationBox->setFont(font);
         formLayout = new QFormLayout(personalInformationBox);
         formLayout->setObjectName("formLayout");
         firstNameLabel = new QLabel(personalInformationBox);
         firstNameLabel->setObjectName("firstNameLabel");
+        firstNameLabel->setFont(font);
 
         formLayout->setWidget(0, QFormLayout::LabelRole, firstNameLabel);
 
         firstNameLineedit = new QLineEdit(personalInformationBox);
         firstNameLineedit->setObjectName("firstNameLineedit");
+        firstNameLineedit->setFont(font);
 
         formLayout->setWidget(0, QFormLayout::FieldRole, firstNameLineedit);
 
         lastNameLabel = new QLabel(personalInformationBox);
         lastNameLabel->setObjectName("lastNameLabel");
+        lastNameLabel->setFont(font);
 
         formLayout->setWidget(1, QFormLayout::LabelRole, lastNameLabel);
 
         lastNameLineEdit = new QLineEdit(personalInformationBox);
         lastNameLineEdit->setObjectName("lastNameLineEdit");
+        lastNameLineEdit->setFont(font);
 
         formLayout->setWidget(1, QFormLayout::FieldRole, lastNameLineEdit);
 
         phoneNumberLabel = new QLabel(personalInformationBox);
         phoneNumberLabel->setObjectName("phoneNumberLabel");
+        phoneNumberLabel->setFont(font);
 
         formLayout->setWidget(2, QFormLayout::LabelRole, phoneNumberLabel);
 
         phoneNumberLineEdit = new QLineEdit(personalInformationBox);
         phoneNumberLineEdit->setObjectName("phoneNumberLineEdit");
+        phoneNumberLineEdit->setFont(font);
 
         formLayout->setWidget(2, QFormLayout::FieldRole, phoneNumberLineEdit);
 
         emailLabel = new QLabel(personalInformationBox);
         emailLabel->setObjectName("emailLabel");
+        emailLabel->setFont(font);
 
         formLayout->setWidget(3, QFormLayout::LabelRole, emailLabel);
 
         emailLineEdit = new QLineEdit(personalInformationBox);
         emailLineEdit->setObjectName("emailLineEdit");
+        emailLineEdit->setFont(font);
 
         formLayout->setWidget(3, QFormLayout::FieldRole, emailLineEdit);
 
@@ -110,30 +126,36 @@ public:
 
         addressBox = new QGroupBox(Form);
         addressBox->setObjectName("addressBox");
+        addressBox->setFont(font);
         formLayout_2 = new QFormLayout(addressBox);
         formLayout_2->setObjectName("formLayout_2");
         streetLabel = new QLabel(addressBox);
         streetLabel->setObjectName("streetLabel");
+        streetLabel->setFont(font);
 
         formLayout_2->setWidget(0, QFormLayout::LabelRole, streetLabel);
 
         streetLineEdit = new QLineEdit(addressBox);
         streetLineEdit->setObjectName("streetLineEdit");
+        streetLineEdit->setFont(font);
 
         formLayout_2->setWidget(0, QFormLayout::FieldRole, streetLineEdit);
 
         cityLabel = new QLabel(addressBox);
         cityLabel->setObjectName("cityLabel");
+        cityLabel->setFont(font);
 
         formLayout_2->setWidget(1, QFormLayout::LabelRole, cityLabel);
 
         cityLineEdit = new QLineEdit(addressBox);
         cityLineEdit->setObjectName("cityLineEdit");
+        cityLineEdit->setFont(font);
 
         formLayout_2->setWidget(1, QFormLayout::FieldRole, cityLineEdit);
 
         label = new QLabel(addressBox);
         label->setObjectName("label");
+        label->setFont(font);
 
         formLayout_2->setWidget(2, QFormLayout::LabelRole, label);
 
@@ -153,16 +175,19 @@ public:
         provinceCbBox->addItem(QString());
         provinceCbBox->addItem(QString());
         provinceCbBox->setObjectName("provinceCbBox");
+        provinceCbBox->setFont(font);
 
         formLayout_2->setWidget(2, QFormLayout::FieldRole, provinceCbBox);
 
         postalCodeLabel = new QLabel(addressBox);
         postalCodeLabel->setObjectName("postalCodeLabel");
+        postalCodeLabel->setFont(font);
 
         formLayout_2->setWidget(3, QFormLayout::LabelRole, postalCodeLabel);
 
         postalCodeLineEdit = new QLineEdit(addressBox);
         postalCodeLineEdit->setObjectName("postalCodeLineEdit");
+        postalCodeLineEdit->setFont(font);
 
         formLayout_2->setWidget(3, QFormLayout::FieldRole, postalCodeLineEdit);
 
@@ -178,6 +203,10 @@ public:
 
         btRegister = new QToolButton(Form);
         btRegister->setObjectName("btRegister");
+        QFont font1;
+        font1.setPointSize(9);
+        font1.setBold(true);
+        btRegister->setFont(font1);
         btRegister->setStyleSheet(QString::fromUtf8("QToolButton {\n"
 "    background-color: #28a745;\n"
 "    color: white;\n"
@@ -198,6 +227,7 @@ public:
 
         btCancel = new QToolButton(Form);
         btCancel->setObjectName("btCancel");
+        btCancel->setFont(font1);
         btCancel->setStyleSheet(QString::fromUtf8("QToolButton {\n"
 "    background-color: #dc3545;   /* Vermelho escuro */\n"
 "    color: white;\n"
