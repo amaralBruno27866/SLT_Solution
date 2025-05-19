@@ -10,8 +10,10 @@
 #define UI_SLT_APPLICATION_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
@@ -22,28 +24,94 @@ QT_BEGIN_NAMESPACE
 class Ui_SLT_ApplicationClass
 {
 public:
-    QMenuBar *menuBar;
-    QToolBar *mainToolBar;
+    QAction *actionAdd_a_new_assessor;
+    QAction *actionManage_assessor;
+    QAction *actionAdd_a_new_client;
+    QAction *actionManger_client;
+    QAction *actionCreate_a_new_case_profile;
+    QAction *actionManage_case_profile;
+    QAction *actionView_forms;
+    QAction *actionMange_forms;
+    QAction *actionGenerate_forms;
+    QAction *actionMange_Database;
+    QAction *actionMain_user;
     QWidget *centralWidget;
+    QMenuBar *menuBar;
+    QMenu *menuAssessor;
+    QMenu *menuClient;
+    QMenu *menuCase_Profile;
+    QMenu *menuForms;
+    QMenu *menuSettings;
+    QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *SLT_ApplicationClass)
     {
         if (SLT_ApplicationClass->objectName().isEmpty())
             SLT_ApplicationClass->setObjectName("SLT_ApplicationClass");
-        SLT_ApplicationClass->resize(600, 400);
-        menuBar = new QMenuBar(SLT_ApplicationClass);
-        menuBar->setObjectName("menuBar");
-        SLT_ApplicationClass->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(SLT_ApplicationClass);
-        mainToolBar->setObjectName("mainToolBar");
-        SLT_ApplicationClass->addToolBar(mainToolBar);
+        SLT_ApplicationClass->resize(1266, 871);
+        actionAdd_a_new_assessor = new QAction(SLT_ApplicationClass);
+        actionAdd_a_new_assessor->setObjectName("actionAdd_a_new_assessor");
+        actionManage_assessor = new QAction(SLT_ApplicationClass);
+        actionManage_assessor->setObjectName("actionManage_assessor");
+        actionAdd_a_new_client = new QAction(SLT_ApplicationClass);
+        actionAdd_a_new_client->setObjectName("actionAdd_a_new_client");
+        actionManger_client = new QAction(SLT_ApplicationClass);
+        actionManger_client->setObjectName("actionManger_client");
+        actionCreate_a_new_case_profile = new QAction(SLT_ApplicationClass);
+        actionCreate_a_new_case_profile->setObjectName("actionCreate_a_new_case_profile");
+        actionManage_case_profile = new QAction(SLT_ApplicationClass);
+        actionManage_case_profile->setObjectName("actionManage_case_profile");
+        actionView_forms = new QAction(SLT_ApplicationClass);
+        actionView_forms->setObjectName("actionView_forms");
+        actionMange_forms = new QAction(SLT_ApplicationClass);
+        actionMange_forms->setObjectName("actionMange_forms");
+        actionGenerate_forms = new QAction(SLT_ApplicationClass);
+        actionGenerate_forms->setObjectName("actionGenerate_forms");
+        actionMange_Database = new QAction(SLT_ApplicationClass);
+        actionMange_Database->setObjectName("actionMange_Database");
+        actionMain_user = new QAction(SLT_ApplicationClass);
+        actionMain_user->setObjectName("actionMain_user");
         centralWidget = new QWidget(SLT_ApplicationClass);
         centralWidget->setObjectName("centralWidget");
         SLT_ApplicationClass->setCentralWidget(centralWidget);
+        menuBar = new QMenuBar(SLT_ApplicationClass);
+        menuBar->setObjectName("menuBar");
+        menuBar->setGeometry(QRect(0, 0, 1266, 33));
+        menuAssessor = new QMenu(menuBar);
+        menuAssessor->setObjectName("menuAssessor");
+        menuClient = new QMenu(menuBar);
+        menuClient->setObjectName("menuClient");
+        menuCase_Profile = new QMenu(menuBar);
+        menuCase_Profile->setObjectName("menuCase_Profile");
+        menuForms = new QMenu(menuBar);
+        menuForms->setObjectName("menuForms");
+        menuSettings = new QMenu(menuBar);
+        menuSettings->setObjectName("menuSettings");
+        SLT_ApplicationClass->setMenuBar(menuBar);
+        mainToolBar = new QToolBar(SLT_ApplicationClass);
+        mainToolBar->setObjectName("mainToolBar");
+        SLT_ApplicationClass->addToolBar(Qt::ToolBarArea::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(SLT_ApplicationClass);
         statusBar->setObjectName("statusBar");
         SLT_ApplicationClass->setStatusBar(statusBar);
+
+        menuBar->addAction(menuAssessor->menuAction());
+        menuBar->addAction(menuClient->menuAction());
+        menuBar->addAction(menuCase_Profile->menuAction());
+        menuBar->addAction(menuForms->menuAction());
+        menuBar->addAction(menuSettings->menuAction());
+        menuAssessor->addAction(actionAdd_a_new_assessor);
+        menuAssessor->addAction(actionManage_assessor);
+        menuClient->addAction(actionAdd_a_new_client);
+        menuClient->addAction(actionManger_client);
+        menuCase_Profile->addAction(actionCreate_a_new_case_profile);
+        menuCase_Profile->addAction(actionManage_case_profile);
+        menuForms->addAction(actionView_forms);
+        menuForms->addAction(actionMange_forms);
+        menuForms->addAction(actionGenerate_forms);
+        menuSettings->addAction(actionMange_Database);
+        menuSettings->addAction(actionMain_user);
 
         retranslateUi(SLT_ApplicationClass);
 
@@ -53,6 +121,22 @@ public:
     void retranslateUi(QMainWindow *SLT_ApplicationClass)
     {
         SLT_ApplicationClass->setWindowTitle(QCoreApplication::translate("SLT_ApplicationClass", "SLT_Application", nullptr));
+        actionAdd_a_new_assessor->setText(QCoreApplication::translate("SLT_ApplicationClass", "Add a new assessor", nullptr));
+        actionManage_assessor->setText(QCoreApplication::translate("SLT_ApplicationClass", "Manage assessor", nullptr));
+        actionAdd_a_new_client->setText(QCoreApplication::translate("SLT_ApplicationClass", "Add a new client", nullptr));
+        actionManger_client->setText(QCoreApplication::translate("SLT_ApplicationClass", "Manger client", nullptr));
+        actionCreate_a_new_case_profile->setText(QCoreApplication::translate("SLT_ApplicationClass", "Create a new case profile", nullptr));
+        actionManage_case_profile->setText(QCoreApplication::translate("SLT_ApplicationClass", "Manage case profile", nullptr));
+        actionView_forms->setText(QCoreApplication::translate("SLT_ApplicationClass", "View forms", nullptr));
+        actionMange_forms->setText(QCoreApplication::translate("SLT_ApplicationClass", "Mange forms", nullptr));
+        actionGenerate_forms->setText(QCoreApplication::translate("SLT_ApplicationClass", "Generate forms", nullptr));
+        actionMange_Database->setText(QCoreApplication::translate("SLT_ApplicationClass", "Mange Database", nullptr));
+        actionMain_user->setText(QCoreApplication::translate("SLT_ApplicationClass", "Main user", nullptr));
+        menuAssessor->setTitle(QCoreApplication::translate("SLT_ApplicationClass", "Assessor", nullptr));
+        menuClient->setTitle(QCoreApplication::translate("SLT_ApplicationClass", "Client", nullptr));
+        menuCase_Profile->setTitle(QCoreApplication::translate("SLT_ApplicationClass", "Case Profile", nullptr));
+        menuForms->setTitle(QCoreApplication::translate("SLT_ApplicationClass", "Forms", nullptr));
+        menuSettings->setTitle(QCoreApplication::translate("SLT_ApplicationClass", "Settings", nullptr));
     } // retranslateUi
 
 };
