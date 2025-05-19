@@ -24,7 +24,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_Form
+class Ui_AssessorForm
 {
 public:
     QVBoxLayout *verticalLayout;
@@ -54,19 +54,19 @@ public:
     QToolButton *btCancel;
     QSpacerItem *horizontalSpacer_2;
 
-    void setupUi(QWidget *Form)
+    void setupUi(QWidget *AssessorForm)
     {
-        if (Form->objectName().isEmpty())
-            Form->setObjectName("Form");
-        Form->resize(720, 455);
+        if (AssessorForm->objectName().isEmpty())
+            AssessorForm->setObjectName("AssessorForm");
+        AssessorForm->resize(720, 455);
         QSizePolicy sizePolicy(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(Form->sizePolicy().hasHeightForWidth());
-        Form->setSizePolicy(sizePolicy);
-        verticalLayout = new QVBoxLayout(Form);
+        sizePolicy.setHeightForWidth(AssessorForm->sizePolicy().hasHeightForWidth());
+        AssessorForm->setSizePolicy(sizePolicy);
+        verticalLayout = new QVBoxLayout(AssessorForm);
         verticalLayout->setObjectName("verticalLayout");
-        personalInformationBox = new QGroupBox(Form);
+        personalInformationBox = new QGroupBox(AssessorForm);
         personalInformationBox->setObjectName("personalInformationBox");
         QFont font;
         font.setPointSize(9);
@@ -124,7 +124,7 @@ public:
 
         verticalLayout->addWidget(personalInformationBox);
 
-        addressBox = new QGroupBox(Form);
+        addressBox = new QGroupBox(AssessorForm);
         addressBox->setObjectName("addressBox");
         addressBox->setFont(font);
         formLayout_2 = new QFormLayout(addressBox);
@@ -201,7 +201,7 @@ public:
 
         btArea->addItem(horizontalSpacer);
 
-        btRegister = new QToolButton(Form);
+        btRegister = new QToolButton(AssessorForm);
         btRegister->setObjectName("btRegister");
         QFont font1;
         font1.setPointSize(9);
@@ -225,7 +225,7 @@ public:
 
         btArea->addWidget(btRegister);
 
-        btCancel = new QToolButton(Form);
+        btCancel = new QToolButton(AssessorForm);
         btCancel->setObjectName("btCancel");
         btCancel->setFont(font1);
         btCancel->setStyleSheet(QString::fromUtf8("QToolButton {\n"
@@ -254,47 +254,47 @@ public:
         verticalLayout->addLayout(btArea);
 
 
-        retranslateUi(Form);
+        retranslateUi(AssessorForm);
 
-        QMetaObject::connectSlotsByName(Form);
+        QMetaObject::connectSlotsByName(AssessorForm);
     } // setupUi
 
-    void retranslateUi(QWidget *Form)
+    void retranslateUi(QWidget *AssessorForm)
     {
-        Form->setWindowTitle(QCoreApplication::translate("Form", "Form", nullptr));
-        personalInformationBox->setTitle(QCoreApplication::translate("Form", "Personal Information", nullptr));
-        firstNameLabel->setText(QCoreApplication::translate("Form", "Firstname", nullptr));
-        lastNameLabel->setText(QCoreApplication::translate("Form", "Lastname", nullptr));
-        phoneNumberLabel->setText(QCoreApplication::translate("Form", "Phone number", nullptr));
-        emailLabel->setText(QCoreApplication::translate("Form", "Email", nullptr));
-        addressBox->setTitle(QCoreApplication::translate("Form", "Address", nullptr));
-        streetLabel->setText(QCoreApplication::translate("Form", "Street", nullptr));
-        cityLabel->setText(QCoreApplication::translate("Form", "City", nullptr));
-        label->setText(QCoreApplication::translate("Form", "Province", nullptr));
-        provinceCbBox->setItemText(0, QCoreApplication::translate("Form", "N/A", nullptr));
-        provinceCbBox->setItemText(1, QCoreApplication::translate("Form", "Alberta (AB)", nullptr));
-        provinceCbBox->setItemText(2, QCoreApplication::translate("Form", "British Columbia (BC)", nullptr));
-        provinceCbBox->setItemText(3, QCoreApplication::translate("Form", "Manitoba (MB)", nullptr));
-        provinceCbBox->setItemText(4, QCoreApplication::translate("Form", "New Brunswick (NB)", nullptr));
-        provinceCbBox->setItemText(5, QCoreApplication::translate("Form", "Newfoundland and Labrador (NL)", nullptr));
-        provinceCbBox->setItemText(6, QCoreApplication::translate("Form", "Nova Scotia (NS)", nullptr));
-        provinceCbBox->setItemText(7, QCoreApplication::translate("Form", "Ontario (ON)", nullptr));
-        provinceCbBox->setItemText(8, QCoreApplication::translate("Form", "Prince Edward Island (PE) ", nullptr));
-        provinceCbBox->setItemText(9, QCoreApplication::translate("Form", "Quebec (QC)", nullptr));
-        provinceCbBox->setItemText(10, QCoreApplication::translate("Form", "Saskatchewan (SK)", nullptr));
-        provinceCbBox->setItemText(11, QCoreApplication::translate("Form", "Northwest Territories (NT)", nullptr));
-        provinceCbBox->setItemText(12, QCoreApplication::translate("Form", "Nunavut (NU)", nullptr));
-        provinceCbBox->setItemText(13, QCoreApplication::translate("Form", "Yukon (YT)", nullptr));
+        AssessorForm->setWindowTitle(QCoreApplication::translate("AssessorForm", "Form", nullptr));
+        personalInformationBox->setTitle(QCoreApplication::translate("AssessorForm", "Personal Information", nullptr));
+        firstNameLabel->setText(QCoreApplication::translate("AssessorForm", "Firstname", nullptr));
+        lastNameLabel->setText(QCoreApplication::translate("AssessorForm", "Lastname", nullptr));
+        phoneNumberLabel->setText(QCoreApplication::translate("AssessorForm", "Phone number", nullptr));
+        emailLabel->setText(QCoreApplication::translate("AssessorForm", "Email", nullptr));
+        addressBox->setTitle(QCoreApplication::translate("AssessorForm", "Address", nullptr));
+        streetLabel->setText(QCoreApplication::translate("AssessorForm", "Street", nullptr));
+        cityLabel->setText(QCoreApplication::translate("AssessorForm", "City", nullptr));
+        label->setText(QCoreApplication::translate("AssessorForm", "Province", nullptr));
+        provinceCbBox->setItemText(0, QCoreApplication::translate("AssessorForm", "N/A", nullptr));
+        provinceCbBox->setItemText(1, QCoreApplication::translate("AssessorForm", "Alberta (AB)", nullptr));
+        provinceCbBox->setItemText(2, QCoreApplication::translate("AssessorForm", "British Columbia (BC)", nullptr));
+        provinceCbBox->setItemText(3, QCoreApplication::translate("AssessorForm", "Manitoba (MB)", nullptr));
+        provinceCbBox->setItemText(4, QCoreApplication::translate("AssessorForm", "New Brunswick (NB)", nullptr));
+        provinceCbBox->setItemText(5, QCoreApplication::translate("AssessorForm", "Newfoundland and Labrador (NL)", nullptr));
+        provinceCbBox->setItemText(6, QCoreApplication::translate("AssessorForm", "Nova Scotia (NS)", nullptr));
+        provinceCbBox->setItemText(7, QCoreApplication::translate("AssessorForm", "Ontario (ON)", nullptr));
+        provinceCbBox->setItemText(8, QCoreApplication::translate("AssessorForm", "Prince Edward Island (PE) ", nullptr));
+        provinceCbBox->setItemText(9, QCoreApplication::translate("AssessorForm", "Quebec (QC)", nullptr));
+        provinceCbBox->setItemText(10, QCoreApplication::translate("AssessorForm", "Saskatchewan (SK)", nullptr));
+        provinceCbBox->setItemText(11, QCoreApplication::translate("AssessorForm", "Northwest Territories (NT)", nullptr));
+        provinceCbBox->setItemText(12, QCoreApplication::translate("AssessorForm", "Nunavut (NU)", nullptr));
+        provinceCbBox->setItemText(13, QCoreApplication::translate("AssessorForm", "Yukon (YT)", nullptr));
 
-        postalCodeLabel->setText(QCoreApplication::translate("Form", "Postal Code", nullptr));
-        btRegister->setText(QCoreApplication::translate("Form", "Register", nullptr));
-        btCancel->setText(QCoreApplication::translate("Form", "Cancel", nullptr));
+        postalCodeLabel->setText(QCoreApplication::translate("AssessorForm", "Postal Code", nullptr));
+        btRegister->setText(QCoreApplication::translate("AssessorForm", "Register", nullptr));
+        btCancel->setText(QCoreApplication::translate("AssessorForm", "Cancel", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class Form: public Ui_Form {};
+    class AssessorForm: public Ui_AssessorForm {};
 } // namespace Ui
 
 QT_END_NAMESPACE

@@ -15,5 +15,5 @@ public:
     }
 
 private:
-    Ui::Form ui;
+    Ui::AssessorForm ui;
 };

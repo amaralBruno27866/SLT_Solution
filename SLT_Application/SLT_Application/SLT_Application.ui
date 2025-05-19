@@ -137,9 +137,7 @@
     <string>Add a new assessor</string>
    </property>
    <property name="font">
-    <font>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
   </action>
   <action name="actionManage_assessor">
@@ -147,9 +145,7 @@
     <string>Manage assessor</string>
    </property>
    <property name="font">
-    <font>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
   </action>
   <action name="actionAdd_a_new_client">
@@ -157,9 +153,7 @@
     <string>Add a new client</string>
    </property>
    <property name="font">
-    <font>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
   </action>
   <action name="actionManger_client">
@@ -167,9 +161,7 @@
     <string>Manage client</string>
    </property>
    <property name="font">
-    <font>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
   </action>
   <action name="actionCreate_a_new_case_profile">
@@ -177,9 +169,7 @@
     <string>Create a new case profile</string>
    </property>
    <property name="font">
-    <font>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
   </action>
   <action name="actionManage_case_profile">
@@ -187,9 +177,7 @@
     <string>Manage case profile</string>
    </property>
    <property name="font">
-    <font>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
   </action>
   <action name="actionView_forms">
@@ -197,9 +185,7 @@
     <string>View forms</string>
    </property>
    <property name="font">
-    <font>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
   </action>
   <action name="actionMange_forms">
@@ -207,9 +193,7 @@
     <string>Mange forms</string>
    </property>
    <property name="font">
-    <font>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
   </action>
   <action name="actionGenerate_forms">
@@ -217,9 +201,7 @@
     <string>Generate forms</string>
    </property>
    <property name="font">
-    <font>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
   </action>
   <action name="actionMange_Database">
@@ -227,9 +209,7 @@
     <string>Mange Database</string>
    </property>
    <property name="font">
-    <font>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
   </action>
   <action name="actionMain_user">
@@ -237,9 +217,7 @@
     <string>Main user</string>
    </property>
    <property name="font">
-    <font>
-     <pointsize>9</pointsize>
-    </font>
+    <font/>
    </property>
   </action>
  </widget>

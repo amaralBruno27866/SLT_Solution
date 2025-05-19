@@ -15,27 +15,28 @@
   main.cpp
 C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\SLT_Application.cpp(1,1): warning C4828: The file contains a character starting at offset 0x33c that is illegal in the current source character set (codepage 65001).
 C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
-  (compiling source file 'AssessorForm.cpp')
-  
-C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
-  (compiling source file 'SLT_Application.cpp')
+  (compiling source file 'main.cpp')
   
 C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
   (compiling source file 'ManageAssessor.cpp')
   
 C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
-  (compiling source file 'main.cpp')
+  (compiling source file 'AssessorForm.cpp')
   
-C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\x64\Debug\qt\uic\ui_ManageAssessor.h(24,7): error C2011: 'Ui_Form': 'class' type redefinition
-  (compiling source file 'SLT_Application.cpp')
-      C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\x64\Debug\qt\uic\ui_AssessorForm.h(27,7):
-      see declaration of 'Ui_Form'
-  
-C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\x64\Debug\qt\uic\ui_ManageAssessor.h(121,11): error C2011: 'Ui::Form': 'class' type redefinition
-  (compiling source file 'SLT_Application.cpp')
-      C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\x64\Debug\qt\uic\ui_AssessorForm.h(297,11):
-      see declaration of 'Ui::Form'
-  
-C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\ManageAssessor.h(18,11): error C2079: 'ManageAssessor::ui' uses undefined class 'Ui::Form'
+C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
   (compiling source file 'SLT_Application.cpp')
   
+  qrc_SLT_Application.cpp
+  moc_SLT_Application.cpp
+  moc_AssessorForm.cpp
+  moc_ManageAssessor.cpp
+C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'x64/Debug/qt/moc/moc_AssessorForm.cpp')
+  
+C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'x64/Debug/qt/moc/moc_ManageAssessor.cpp')
+  
+C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'x64/Debug/qt/moc/moc_SLT_Application.cpp')
+  
+  SLT_Application.vcxproj -> C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\x64\Debug\SLT_Application.exe
