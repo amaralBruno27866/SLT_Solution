@@ -1,11 +1,26 @@
 ﻿   Qt/MSBuild: 3.3.1.1
-  Reading Qt configuration (C:/Qt/6.7.3/msvc2022_64/bin/qmake)
    Qt: 6.7.3
-  uic SLT_W11.ui
-  rcc SLT_W11.qrc
-  moc SLT_W11.h
+  AddAssessorWidget.cpp
   main.cpp
   SLT_W11.cpp
-  qrc_SLT_W11.cpp
-  moc_SLT_W11.cpp
-  SLT_W11.vcxproj -> C:\Users\balen\CodeSpace\SLT_W11_solution\x64\Debug\SLT_W11.exe
+C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'SLT_W11.cpp')
+  
+C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'main.cpp')
+  
+C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'AddAssessorWidget.cpp')
+  
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_W11_solution\SLT_W11\AddAssessorWidget.cpp(6,5): error C2027: use of undefined type 'Ui::AddAssessorWidget'
+      C:\Users\balen\CodeSpace\SLT_Solution\SLT_W11_solution\SLT_W11\AddAssessorWidget.h(7,8):
+      see declaration of 'Ui::AddAssessorWidget'
+  
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_W11_solution\SLT_W11\AddAssessorWidget.cpp(8,2): error C2027: use of undefined type 'Ui::AddAssessorWidget'
+      C:\Users\balen\CodeSpace\SLT_Solution\SLT_W11_solution\SLT_W11\AddAssessorWidget.h(7,8):
+      see declaration of 'Ui::AddAssessorWidget'
+  
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_W11_solution\SLT_W11\AddAssessorWidget.cpp(13,2): warning C4150: deletion of pointer to incomplete type 'Ui::AddAssessorWidget'; no destructor called
+      C:\Users\balen\CodeSpace\SLT_Solution\SLT_W11_solution\SLT_W11\AddAssessorWidget.h(7,8):
+      see declaration of 'Ui::AddAssessorWidget'
+  

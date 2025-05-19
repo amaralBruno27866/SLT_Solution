@@ -1,0 +1,16 @@
+#pragma once
+
+#include <QtWidgets/QMainWindow>
+#include "ui_SLT_Application.h"
+
+class SLT_Application : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    SLT_Application(QWidget *parent = nullptr);
+    ~SLT_Application();
+
+private:
+    Ui::SLT_ApplicationClass ui;
+};

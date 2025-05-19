@@ -101,6 +101,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddAssessorWidget.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SLT_W11.cpp" />
   </ItemGroup>
@@ -111,10 +112,19 @@
     <QtMoc Include="SLT_W11.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="SLT_W11.ui" />
+    <QtUic Include="AddAssessorWidget.ui" />
+    <QtUic Include="SLT_W11.ui">
+      <FileType>Document</FileType>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="AddAssessorWidget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="x64\Debug\qt\uic\ui_AddAssessorWidget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

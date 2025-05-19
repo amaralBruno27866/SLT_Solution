@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
-#include "ui_SLT_W11.h" // Ensure this includes the definition of Ui::SLT_W11Class
+#include "x64/Debug/qt/uic/ui_SLT_W11.h"
 
 class SLT_W11 : public QMainWindow
 {

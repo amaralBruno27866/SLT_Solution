@@ -29,6 +29,9 @@
     <ClCompile Include="SLT_W11.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AddAssessorWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="SLT_W11.qrc">
@@ -39,13 +42,24 @@
     <QtMoc Include="SLT_W11.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="AddAssessorWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="SLT_W11.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="AddAssessorWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="x64\Debug\qt\uic\ui_AddAssessorWidget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
