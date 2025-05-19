@@ -13,4 +13,7 @@ public:
 
 private:
     Ui::SLT_ApplicationClass ui;
+
+private slots:
+    void on_actionAdd_a_new_assessor_triggered();
 };

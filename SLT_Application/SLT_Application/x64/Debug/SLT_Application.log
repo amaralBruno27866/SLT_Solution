@@ -1,0 +1,31 @@
+﻿   Qt/MSBuild: 3.3.1.1
+  Reading Qt configuration (C:/Qt/6.7.3/msvc2022_64/bin/qmake)
+   Qt: 6.7.3
+  uic AssessorForm.ui
+  uic SLT_Application.ui
+  rcc SLT_Application.qrc
+  moc SLT_Application.h
+  moc AssessorForm.h
+   RCC: Warning: No resources in 'C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\SLT_Application.qrc'.
+  AssessorForm.cpp
+  SLT_Application.cpp
+  main.cpp
+C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'main.cpp')
+  
+C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'SLT_Application.cpp')
+  
+C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'AssessorForm.cpp')
+  
+  qrc_SLT_Application.cpp
+  moc_SLT_Application.cpp
+  moc_AssessorForm.cpp
+C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'x64/Debug/qt/moc/moc_AssessorForm.cpp')
+  
+C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'x64/Debug/qt/moc/moc_SLT_Application.cpp')
+  
+  SLT_Application.vcxproj -> C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\x64\Debug\SLT_Application.exe

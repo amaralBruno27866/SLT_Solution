@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1266</width>
-    <height>871</height>
+    <width>758</width>
+    <height>519</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1266</width>
+     <width>758</width>
      <height>33</height>
     </rect>
    </property>
@@ -91,7 +91,7 @@
   </action>
   <action name="actionManger_client">
    <property name="text">
-    <string>Manger client</string>
+    <string>Manage client</string>
    </property>
   </action>
   <action name="actionCreate_a_new_case_profile">

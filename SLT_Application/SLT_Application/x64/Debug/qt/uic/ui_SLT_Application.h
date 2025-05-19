@@ -49,7 +49,7 @@ public:
     {
         if (SLT_ApplicationClass->objectName().isEmpty())
             SLT_ApplicationClass->setObjectName("SLT_ApplicationClass");
-        SLT_ApplicationClass->resize(1266, 871);
+        SLT_ApplicationClass->resize(758, 519);
         actionAdd_a_new_assessor = new QAction(SLT_ApplicationClass);
         actionAdd_a_new_assessor->setObjectName("actionAdd_a_new_assessor");
         actionManage_assessor = new QAction(SLT_ApplicationClass);
@@ -77,7 +77,7 @@ public:
         SLT_ApplicationClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(SLT_ApplicationClass);
         menuBar->setObjectName("menuBar");
-        menuBar->setGeometry(QRect(0, 0, 1266, 33));
+        menuBar->setGeometry(QRect(0, 0, 758, 33));
         menuAssessor = new QMenu(menuBar);
         menuAssessor->setObjectName("menuAssessor");
         menuClient = new QMenu(menuBar);
@@ -124,7 +124,7 @@ public:
         actionAdd_a_new_assessor->setText(QCoreApplication::translate("SLT_ApplicationClass", "Add a new assessor", nullptr));
         actionManage_assessor->setText(QCoreApplication::translate("SLT_ApplicationClass", "Manage assessor", nullptr));
         actionAdd_a_new_client->setText(QCoreApplication::translate("SLT_ApplicationClass", "Add a new client", nullptr));
-        actionManger_client->setText(QCoreApplication::translate("SLT_ApplicationClass", "Manger client", nullptr));
+        actionManger_client->setText(QCoreApplication::translate("SLT_ApplicationClass", "Manage client", nullptr));
         actionCreate_a_new_case_profile->setText(QCoreApplication::translate("SLT_ApplicationClass", "Create a new case profile", nullptr));
         actionManage_case_profile->setText(QCoreApplication::translate("SLT_ApplicationClass", "Manage case profile", nullptr));
         actionView_forms->setText(QCoreApplication::translate("SLT_ApplicationClass", "View forms", nullptr));
