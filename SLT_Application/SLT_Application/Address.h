@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 
-namespace slt {
+namespace silver {
 	class Address {
 	private:
 		std::string m_street;
@@ -15,11 +15,11 @@ namespace slt {
 		Address(const std::string& street, const std::string& city, const std::string& province, const std::string& postalCode);
 
 		// Copy constructor and assignment
-		Address(const Address&) = default;
-		Address& operator=(const Address&) = default;
+		Address(const Address&);
+		Address& operator=(const Address&);
 
 		// Destructor
-		~Address() = default;
+		~Address();
 
 		// Getters
 		const std::string& getStreet() const;
@@ -34,7 +34,11 @@ namespace slt {
 		void setPostalCode(const std::string& postalCode);
 
 		// String representation
-		std::string toString() const;
+		std::string toString();
+
+		// Postal code helpers
+		static bool isValidPostalCode(const std::string& code);
+		static std::string formatPostalCode(const std::string& code);
 
 		// Stream methods
 		std::ostream& display(std::ostream& os) const;
@@ -45,7 +49,7 @@ namespace slt {
 	std::ostream& operator<<(std::ostream& os, const Address& addr);
 	std::istream& operator>>(std::istream& is, Address& addr);
 
-} // namespace slt
+} // namespace silver
 
 #endif // !ADDRESS_H
 
