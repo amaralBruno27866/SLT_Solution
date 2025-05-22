@@ -14,29 +14,8 @@
   SLT_Application.cpp
   main.cpp
 C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\SLT_Application.cpp(1,1): warning C4828: The file contains a character starting at offset 0x33c that is illegal in the current source character set (codepage 65001).
-C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
-  (compiling source file 'main.cpp')
-  
-C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
-  (compiling source file 'ManageAssessor.cpp')
-  
-C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
-  (compiling source file 'AssessorForm.cpp')
-  
-C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
-  (compiling source file 'SLT_Application.cpp')
-  
   qrc_SLT_Application.cpp
   moc_SLT_Application.cpp
   moc_AssessorForm.cpp
   moc_ManageAssessor.cpp
-C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
-  (compiling source file 'x64/Debug/qt/moc/moc_AssessorForm.cpp')
-  
-C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
-  (compiling source file 'x64/Debug/qt/moc/moc_ManageAssessor.cpp')
-  
-C:\Qt\6.7.3\msvc2022_64\include\QtGui\qcolor.h(1,1): warning C4828: The file contains a character starting at offset 0x1d41 that is illegal in the current source character set (codepage 65001).
-  (compiling source file 'x64/Debug/qt/moc/moc_SLT_Application.cpp')
-  
   SLT_Application.vcxproj -> C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\x64\Debug\SLT_Application.exe

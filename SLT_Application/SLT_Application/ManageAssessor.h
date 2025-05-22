@@ -8,11 +8,7 @@ class ManageAssessor : public QWidget
     Q_OBJECT
 
 public:
-    explicit ManageAssessor(QWidget* parent = nullptr)
-        : QWidget(parent)
-    {
-        ui.setupUi(this);
-    }
+    explicit ManageAssessor(QWidget* parent = nullptr);
 
 private:
     Ui::ManageAssessor ui;
