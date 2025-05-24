@@ -15,6 +15,8 @@ class AssessorForm : public QWidget {
 private:
     Ui::AssessorForm ui;
 
+	int m_id;
+
     QString m_firstName;
 	QString m_lastName;
 	QString m_email;
@@ -25,7 +27,7 @@ public:
     explicit AssessorForm(QWidget* parent = nullptr);
 
 	AssessorForm();
-	AssessorForm(const QString& firstName, const QString& lastName, const QString& email, const QString& phone, const Address& address);
+	AssessorForm(int id, const QString& firstName, const QString& lastName, const QString& email, const QString& phone, const Address& address);
 
 	// Copy constructos and assignment
 	AssessorForm(const AssessorForm& other);
@@ -35,6 +37,7 @@ public:
 	~AssessorForm() override;
 
 	// Getters
+	int getId() const;
 	QString getFirstName() const;
 	QString getLastName() const;
 	QString getEmail() const;
@@ -42,6 +45,7 @@ public:
 	Address getAddress() const;
 
 	// Setters
+	void setId(int id);
 	void setFirstName(const QString& firstName);
 	void setLastName(const QString& lastName);
 	void setEmail(const QString& email);
