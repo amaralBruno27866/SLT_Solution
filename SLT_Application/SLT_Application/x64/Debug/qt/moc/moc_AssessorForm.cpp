@@ -33,16 +33,16 @@ QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
 
 #ifdef QT_MOC_HAS_STRINGDATA
-struct qt_meta_stringdata_CLASSAssessorFormENDCLASS_t {};
-constexpr auto qt_meta_stringdata_CLASSAssessorFormENDCLASS = QtMocHelpers::stringData(
-    "AssessorForm"
+struct qt_meta_stringdata_CLASSsilverSCOPEAssessorFormENDCLASS_t {};
+constexpr auto qt_meta_stringdata_CLASSsilverSCOPEAssessorFormENDCLASS = QtMocHelpers::stringData(
+    "silver::AssessorForm"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
 #endif // !QT_MOC_HAS_STRINGDATA
 } // unnamed namespace
 
-Q_CONSTINIT static const uint qt_meta_data_CLASSAssessorFormENDCLASS[] = {
+Q_CONSTINIT static const uint qt_meta_data_CLASSsilverSCOPEAssessorFormENDCLASS[] = {
 
  // content:
       12,       // revision
@@ -58,20 +58,20 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSAssessorFormENDCLASS[] = {
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject AssessorForm::staticMetaObject = { {
+Q_CONSTINIT const QMetaObject silver::AssessorForm::staticMetaObject = { {
     QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
-    qt_meta_stringdata_CLASSAssessorFormENDCLASS.offsetsAndSizes,
-    qt_meta_data_CLASSAssessorFormENDCLASS,
+    qt_meta_stringdata_CLASSsilverSCOPEAssessorFormENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSsilverSCOPEAssessorFormENDCLASS,
     qt_static_metacall,
     nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSAssessorFormENDCLASS_t,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSsilverSCOPEAssessorFormENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<AssessorForm, std::true_type>
     >,
     nullptr
 } };
 
-void AssessorForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void silver::AssessorForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     (void)_o;
     (void)_id;
@@ -79,20 +79,20 @@ void AssessorForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
     (void)_a;
 }
 
-const QMetaObject *AssessorForm::metaObject() const
+const QMetaObject *silver::AssessorForm::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *AssessorForm::qt_metacast(const char *_clname)
+void *silver::AssessorForm::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_CLASSAssessorFormENDCLASS.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSsilverSCOPEAssessorFormENDCLASS.stringdata0))
         return static_cast<void*>(this);
     return QWidget::qt_metacast(_clname);
 }
 
-int AssessorForm::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int silver::AssessorForm::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
     return _id;

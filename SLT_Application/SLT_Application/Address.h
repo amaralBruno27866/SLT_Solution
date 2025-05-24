@@ -4,16 +4,17 @@
 #include <iostream>
 #include "Utils.h"
 
+using namespace std;
 namespace silver {
 	class Address {
 	private:
-		std::string m_street;
-		std::string m_city;
-		std::string m_province;
-		std::string m_postalCode;
+		string m_street;
+		string m_city;
+		string m_province;
+		string m_postalCode;
 	public:
 		Address();
-		Address(const std::string& street, const std::string& city, const std::string& province, const std::string& postalCode);
+		Address(const string& street, const string& city, const string& province, const string& postalCode);
 
 		// Copy constructor and assignment
 		Address(const Address&);
@@ -23,32 +24,32 @@ namespace silver {
 		~Address();
 
 		// Getters
-		const std::string& getStreet() const;
-		const std::string& getCity() const;
-		const std::string& getProvince() const;
-		const std::string& getPostalCode() const;
+		const string& getStreet() const;
+		const string& getCity() const;
+		const string& getProvince() const;
+		const string& getPostalCode() const;
 
 		// Setters
-		void setStreet(const std::string& street);
-		void setCity(const std::string& city);
-		void setProvince(const std::string& province);
-		void setPostalCode(const std::string& postalCode);
+		void setStreet(const string& street);
+		void setCity(const string& city);
+		void setProvince(const string& province);
+		void setPostalCode(const string& postalCode);
 
 		// String representation
-		std::string toString();
+		string toString();
 
 		// Postal code helpers
-		static bool isValidPostalCode(const std::string& code);
-		static std::string formatPostalCode(const std::string& code);
+		static bool isValidPostalCode(const string& code);
+		static string formatPostalCode(const string& code);
 
 		// Stream methods
-		std::ostream& display(std::ostream& os) const;
-		std::istream& read(std::istream& is);
+		ostream& display(ostream& os) const;
+		istream& read(istream& is);
 	};
 
 	// Stream operators
-	std::ostream& operator<<(std::ostream& os, const Address& addr);
-	std::istream& operator>>(std::istream& is, Address& addr);
+	ostream& operator<<(ostream& os, const Address& addr);
+	istream& operator>>(istream& is, Address& addr);
 
 } // namespace silver
 

@@ -39,7 +39,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Firstname</string>
+         <string>First name</string>
         </property>
        </widget>
       </item>
@@ -60,7 +60,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Lastname</string>
+         <string>Last name</string>
         </property>
        </widget>
       </item>

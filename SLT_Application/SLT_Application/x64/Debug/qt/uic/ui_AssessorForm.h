@@ -263,8 +263,8 @@ public:
     {
         AssessorForm->setWindowTitle(QCoreApplication::translate("AssessorForm", "Form", nullptr));
         personalInformationBox->setTitle(QCoreApplication::translate("AssessorForm", "Personal Information", nullptr));
-        firstNameLabel->setText(QCoreApplication::translate("AssessorForm", "Firstname", nullptr));
-        lastNameLabel->setText(QCoreApplication::translate("AssessorForm", "Lastname", nullptr));
+        firstNameLabel->setText(QCoreApplication::translate("AssessorForm", "First name", nullptr));
+        lastNameLabel->setText(QCoreApplication::translate("AssessorForm", "Last name", nullptr));
         phoneNumberLabel->setText(QCoreApplication::translate("AssessorForm", "Phone number", nullptr));
         emailLabel->setText(QCoreApplication::translate("AssessorForm", "Email", nullptr));
         addressBox->setTitle(QCoreApplication::translate("AssessorForm", "Address", nullptr));
