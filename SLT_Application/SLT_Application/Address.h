@@ -2,6 +2,7 @@
 #define ADDRESS_H
 #include <string>
 #include <iostream>
+#include "Utils.h"
 
 namespace silver {
 	class Address {

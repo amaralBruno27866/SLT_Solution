@@ -6,6 +6,7 @@
 #include <cctype>
 #include <regex>
 #include "Address.h"
+#include "Utils.h"
 
 namespace silver {
 
@@ -36,10 +37,24 @@ namespace silver {
     const std::string& Address::getProvince() const { return m_province; }
     const std::string& Address::getPostalCode() const { return m_postalCode; }
 
-    void Address::setStreet(const std::string& street) { m_street = street; }
-    void Address::setCity(const std::string& city) { m_city = city; }
-    void Address::setProvince(const std::string& province) { m_province = province; }
-    void Address::setPostalCode(const std::string& postalCode) { m_postalCode = postalCode; }
+    void Address::setStreet(const std::string& street) {
+        m_street = utils::trim(utils::toUpper(street));
+    }
+    void Address::setCity(const std::string& city) {
+        m_city = utils::trim(utils::toUpper(city));
+    }
+    void Address::setProvince(const std::string& province) {
+        m_province = utils::trim(utils::toUpper(province));
+    }
+    void Address::setPostalCode(const std::string& postalCode) {
+        std::string code = utils::toUpper(utils::trim(postalCode));
+        if (isValidPostalCode(code)) {
+            m_postalCode = formatPostalCode(code);
+        }
+        else {
+            m_postalCode = "";
+        }
+    }
 
     std::string Address::toString()
     {

@@ -9,11 +9,60 @@
   moc AssessorForm.h
   moc ManageAssessor.h
    RCC: Warning: No resources in 'C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\SLT_Application.qrc'.
+  Utils.cpp
+  Address.cpp
   AssessorForm.cpp
   ManageAssessor.cpp
   SLT_Application.cpp
   main.cpp
 C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\SLT_Application.cpp(1,1): warning C4828: The file contains a character starting at offset 0x33c that is illegal in the current source character set (codepage 65001).
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Address.cpp(1,1): warning C4828: The file contains a character starting at offset 0x827 that is illegal in the current source character set (codepage 65001).
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Address.cpp(1,1): warning C4828: The file contains a character starting at offset 0x83e that is illegal in the current source character set (codepage 65001).
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Address.cpp(1,1): warning C4828: The file contains a character starting at offset 0x93b that is illegal in the current source character set (codepage 65001).
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Address.cpp(1,1): warning C4828: The file contains a character starting at offset 0x942 that is illegal in the current source character set (codepage 65001).
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Utils.h(1,1): warning C4828: The file contains a character starting at offset 0x81 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Utils.cpp')
+  
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Address.cpp(1,1): warning C4828: The file contains a character starting at offset 0x94e that is illegal in the current source character set (codepage 65001).
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Utils.h(1,1): warning C4828: The file contains a character starting at offset 0xc8 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Utils.cpp')
+  
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Address.cpp(1,1): warning C4828: The file contains a character starting at offset 0x9a2 that is illegal in the current source character set (codepage 65001).
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Utils.h(1,1): warning C4828: The file contains a character starting at offset 0xd1 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Utils.cpp')
+  
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Address.cpp(1,1): warning C4828: The file contains a character starting at offset 0x9a7 that is illegal in the current source character set (codepage 65001).
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Utils.h(1,1): warning C4828: The file contains a character starting at offset 0x121 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Utils.cpp')
+  
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Address.cpp(1,1): warning C4828: The file contains a character starting at offset 0xa67 that is illegal in the current source character set (codepage 65001).
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Utils.h(1,1): warning C4828: The file contains a character starting at offset 0x1d5 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Utils.cpp')
+  
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Address.cpp(1,1): warning C4828: The file contains a character starting at offset 0xa79 that is illegal in the current source character set (codepage 65001).
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Utils.h(1,1): warning C4828: The file contains a character starting at offset 0x2a9 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Utils.cpp')
+  
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Address.cpp(1,1): warning C4828: The file contains a character starting at offset 0xa7e that is illegal in the current source character set (codepage 65001).
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Address.cpp(1,1): warning C4828: The file contains a character starting at offset 0xa8d that is illegal in the current source character set (codepage 65001).
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Utils.h(1,1): warning C4828: The file contains a character starting at offset 0x81 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Address.cpp')
+  
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Utils.h(1,1): warning C4828: The file contains a character starting at offset 0xc8 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Address.cpp')
+  
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Utils.h(1,1): warning C4828: The file contains a character starting at offset 0xd1 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Address.cpp')
+  
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Utils.h(1,1): warning C4828: The file contains a character starting at offset 0x121 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Address.cpp')
+  
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Utils.h(1,1): warning C4828: The file contains a character starting at offset 0x1d5 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Address.cpp')
+  
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Utils.h(1,1): warning C4828: The file contains a character starting at offset 0x2a9 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Address.cpp')
+  
   qrc_SLT_Application.cpp
   moc_SLT_Application.cpp
   moc_AssessorForm.cpp
