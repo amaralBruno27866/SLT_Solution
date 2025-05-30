@@ -359,11 +359,65 @@ namespace silver {
 	
 	ostream& operator<<(ostream& os, const AssessorForm& form)
 	{
-		// TODO: insert return statement here
+		os << "Assessor ID: " << form.getId() << endl;
+		os << "First Name: " << form.getFirstName().toStdString() << endl;
+		os << "Last Name: " << form.getLastName().toStdString() << endl;
+		os << "Email: " << form.getEmail().toStdString() << endl;
+		os << "Phone: " << form.getPhone().toStdString() << endl;
+		os << "Address: " << form.getAddress().toString() << endl;
+
+		return os;
 	}
 	
 	istream& operator>>(istream& is, AssessorForm& form)
 	{
-		// TODO: insert return statement here
+		int id;
+		string firstName, lastName, email, phone;
+		string street, city, province, postalCode;
+
+		// Read each field in one line
+		string line;
+
+		// ID
+		if (getline(is, line)) {
+			auto pos = line.find(':');
+			if (pos != string::npos) {
+				id = stoi(line.substr(pos + 1));
+			}
+			else {
+				id = 0;
+			}
+		}
+
+		// First name
+		if (getline(is, line)) {
+			auto pos = line.find(':');
+			firstName = (pos != string::npos) ? line.substr(pos + 1) : "";
+		}
+
+		// Last name
+		if (getline(is, line)) {
+			auto pos = line.find(':');
+			lastName = (pos != string::npos) ? line.substr(pos + 1) : "";
+		}
+
+		// Email
+		if (getline(is, line)) {
+			auto pos = line.find(':');
+			email = (pos != string::npos) ? line.substr(pos + 1) : "";
+		}
+
+		// Phone
+		if (getline(is, line)) {
+			auto pos = line.find(':');
+			phone = (pos != string::npos) ? line.substr(pos + 1) : "";
+		}
+
+		// Address
+		if (getline(is, line)) {
+			auto pos = line.find(':');
+			string addrStr = (pos != string::npos) ? line.substr(pos + 1) : "";
+			istringstream addrStream(addrStr);
+		}
 	}
 }
