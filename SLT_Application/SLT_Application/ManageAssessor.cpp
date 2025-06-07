@@ -69,6 +69,19 @@ namespace silver {
 
     void ManageAssessor::addAssessor()
     {
+        // Create the form dor adding a new assessor
+        Assessor* form = new Assessor(this);
+
+        // When the form was closed, reload the assessors list
+        connect(form, &QWidget::destroyed, this, [this]() {
+            this->loadAssessors();
+        });
+
+		// Sequence for showing the form
+        form->setAttribute(Qt::WA_DeleteOnClose);
+        form->setWindowFlag(Qt::Window);
+        form->setFixedSize(500, 400);
+        form->show();
     }
 
     void ManageAssessor::editAssessor()
