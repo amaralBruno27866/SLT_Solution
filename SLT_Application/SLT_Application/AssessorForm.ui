@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>720</width>
-    <height>455</height>
+    <height>456</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -20,6 +20,22 @@
    <string>Form</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="page_title">
+     <property name="font">
+      <font>
+       <pointsize>24</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Page Title</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
    <item>
     <widget class="QGroupBox" name="personalInformationBox">
      <property name="font">
@@ -331,6 +347,29 @@ QToolButton:hover {
        </property>
        <property name="text">
         <string>Register</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="btMyCases">
+       <property name="styleSheet">
+        <string notr="true">QToolButton {
+    background-color: #2b93e9;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: bold;
+    width: 100px;
+    height: 20px;
+}
+
+QToolButton:hover {
+    background-color: #2b29e9;
+}</string>
+       </property>
+       <property name="text">
+        <string>My Cases</string>
        </property>
       </widget>
      </item>

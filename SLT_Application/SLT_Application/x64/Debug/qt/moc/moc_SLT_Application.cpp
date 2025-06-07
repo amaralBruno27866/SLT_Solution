@@ -33,9 +33,9 @@ QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
 
 #ifdef QT_MOC_HAS_STRINGDATA
-struct qt_meta_stringdata_CLASSSLT_ApplicationENDCLASS_t {};
-constexpr auto qt_meta_stringdata_CLASSSLT_ApplicationENDCLASS = QtMocHelpers::stringData(
-    "SLT_Application",
+struct qt_meta_stringdata_CLASSsilverSCOPESLT_ApplicationENDCLASS_t {};
+constexpr auto qt_meta_stringdata_CLASSsilverSCOPESLT_ApplicationENDCLASS = QtMocHelpers::stringData(
+    "silver::SLT_Application",
     "on_actionAdd_a_new_assessor_triggered",
     "",
     "on_actionManage_assessor_triggered"
@@ -45,7 +45,7 @@ constexpr auto qt_meta_stringdata_CLASSSLT_ApplicationENDCLASS = QtMocHelpers::s
 #endif // !QT_MOC_HAS_STRINGDATA
 } // unnamed namespace
 
-Q_CONSTINIT static const uint qt_meta_data_CLASSSLT_ApplicationENDCLASS[] = {
+Q_CONSTINIT static const uint qt_meta_data_CLASSsilverSCOPESLT_ApplicationENDCLASS[] = {
 
  // content:
       12,       // revision
@@ -69,13 +69,13 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSSLT_ApplicationENDCLASS[] = {
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject SLT_Application::staticMetaObject = { {
+Q_CONSTINIT const QMetaObject silver::SLT_Application::staticMetaObject = { {
     QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
-    qt_meta_stringdata_CLASSSLT_ApplicationENDCLASS.offsetsAndSizes,
-    qt_meta_data_CLASSSLT_ApplicationENDCLASS,
+    qt_meta_stringdata_CLASSsilverSCOPESLT_ApplicationENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSsilverSCOPESLT_ApplicationENDCLASS,
     qt_static_metacall,
     nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSSLT_ApplicationENDCLASS_t,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSsilverSCOPESLT_ApplicationENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<SLT_Application, std::true_type>,
         // method 'on_actionAdd_a_new_assessor_triggered'
@@ -86,7 +86,7 @@ Q_CONSTINIT const QMetaObject SLT_Application::staticMetaObject = { {
     nullptr
 } };
 
-void SLT_Application::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void silver::SLT_Application::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         auto *_t = static_cast<SLT_Application *>(_o);
@@ -100,20 +100,20 @@ void SLT_Application::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
     (void)_a;
 }
 
-const QMetaObject *SLT_Application::metaObject() const
+const QMetaObject *silver::SLT_Application::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *SLT_Application::qt_metacast(const char *_clname)
+void *silver::SLT_Application::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_CLASSSLT_ApplicationENDCLASS.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSsilverSCOPESLT_ApplicationENDCLASS.stringdata0))
         return static_cast<void*>(this);
     return QMainWindow::qt_metacast(_clname);
 }
 
-int SLT_Application::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int silver::SLT_Application::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QMainWindow::qt_metacall(_c, _id, _a);
     if (_id < 0)

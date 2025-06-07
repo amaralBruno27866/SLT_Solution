@@ -355,6 +355,68 @@ namespace silver {
 			QMessageBox::warning(this, "Validation Error", errors.join("\n"));
 		}
 	}
+
+	void Assessor::setMode(FormMode mode)
+	{
+		m_mode = mode;
+
+		switch (mode) {
+		case FormMode::Create:
+			if (ui.page_title) ui.page_title->setText("Create Assessor");
+			if (ui.btRegister) ui.btRegister->setVisible(true);
+			if (ui.btCancel) ui.btCancel->setVisible(true);
+			if (ui.btMyCases) ui.btMyCases->setVisible(false);
+
+			// Turn available fields for creation
+			if (ui.firstNameLineedit) ui.firstNameLineedit->setEnabled(true);
+			if (ui.lastNameLineEdit) ui.lastNameLineEdit->setEnabled(true);
+			if (ui.emailLineEdit) ui.emailLineEdit->setEnabled(true);
+			if (ui.phoneNumberLineEdit) ui.phoneNumberLineEdit->setEnabled(true);
+			if (ui.streetLineEdit) ui.streetLineEdit->setEnabled(true);
+			if (ui.cityLineEdit) ui.cityLineEdit->setEnabled(true);
+			if (ui.provinceCbBox) ui.provinceCbBox->setEnabled(true);
+			if (ui.postalCodeLineEdit) ui.postalCodeLineEdit->setEnabled(true);
+
+			break;
+		case FormMode::Edit:
+			if (ui.page_title) ui.page_title->setText("Edit Assessor");
+			if (ui.btRegister) ui.btRegister->setVisible(true);
+			if (ui.btCancel) ui.btCancel->setVisible(true);
+			if (ui.btMyCases) ui.btMyCases->setVisible(false);
+			
+			// Turn available fields for creation
+			if (ui.firstNameLineedit) ui.firstNameLineedit->setEnabled(true);
+			if (ui.lastNameLineEdit) ui.lastNameLineEdit->setEnabled(true);
+			if (ui.emailLineEdit) ui.emailLineEdit->setEnabled(true);
+			if (ui.phoneNumberLineEdit) ui.phoneNumberLineEdit->setEnabled(true);
+			if (ui.streetLineEdit) ui.streetLineEdit->setEnabled(true);
+			if (ui.cityLineEdit) ui.cityLineEdit->setEnabled(true);
+			if (ui.provinceCbBox) ui.provinceCbBox->setEnabled(true);
+			if (ui.postalCodeLineEdit) ui.postalCodeLineEdit->setEnabled(true);
+
+			break;
+		case FormMode::Detail:
+			if (ui.page_title) ui.page_title->setText("Assessor Details");
+			if (ui.btRegister) ui.btRegister->setVisible(false);
+			if (ui.btCancel) ui.btCancel->setVisible(true);
+			if (ui.btMyCases) ui.btMyCases->setVisible(true);
+
+			// Turn unavailable fields for edition
+			if (ui.firstNameLineedit) ui.firstNameLineedit->setEnabled(false);
+			if (ui.lastNameLineEdit) ui.lastNameLineEdit->setEnabled(false);
+			if (ui.phoneNumberLineEdit) ui.phoneNumberLineEdit->setEnabled(false);
+			if (ui.emailLineEdit) ui.emailLineEdit->setEnabled(false);
+			if (ui.streetLineEdit) ui.streetLineEdit->setEnabled(false);
+			if (ui.cityLineEdit) ui.cityLineEdit->setEnabled(false);
+			if (ui.provinceCbBox) ui.provinceCbBox->setEnabled(false);
+			if (ui.postalCodeLineEdit) ui.postalCodeLineEdit->setEnabled(false);
+
+			// Change txt of the cancel button to "Close"
+			if (ui.btCancel) ui.btCancel->setText("Close");
+			
+			break;
+		}
+	}
 	
 	ostream& operator<<(ostream& os, const Assessor& form)
 	{

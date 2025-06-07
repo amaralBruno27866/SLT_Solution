@@ -12,18 +12,9 @@ namespace silver {
 class Assessor : public QWidget {
     Q_OBJECT
 
-private:
-    Ui::AssessorForm ui;
-
-	int m_id;
-
-    QString m_firstName;
-	QString m_lastName;
-	QString m_email;
-	QString m_phone;
-	Address m_address;
-
 public:
+	enum class FormMode { Create, Edit, Detail };
+
     explicit Assessor(QWidget* parent = nullptr);
 
 	Assessor(int id, const QString& firstName, const QString& lastName, const QString& email, const QString& phone, const Address& address);
@@ -75,9 +66,24 @@ public:
 	// Function to handle form validation
 	void handleFormValidation();
 
+	// Function to handle form state
+	void setMode(FormMode mode);
+
 	// Stream methods
 	ostream& display(ostream& os) const;
 	istream& read(istream& is);
+
+private:
+	FormMode m_mode = FormMode::Create;
+	Ui::AssessorForm ui;
+
+	int m_id;
+
+	QString m_firstName;
+	QString m_lastName;
+	QString m_email;
+	QString m_phone;
+	Address m_address;
 };
 
 	// Stream operators
