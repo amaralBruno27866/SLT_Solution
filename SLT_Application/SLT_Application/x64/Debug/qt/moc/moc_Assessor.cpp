@@ -1,12 +1,12 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'AssessorForm.h'
+** Meta object code from reading C++ file 'Assessor.h'
 **
 ** Created by: The Qt Meta Object Compiler version 68 (Qt 6.7.3)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../../AssessorForm.h"
+#include "../../../../Assessor.h"
 #include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 
@@ -17,7 +17,7 @@
 
 #include <QtCore/qxptype_traits.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'AssessorForm.h' doesn't include <QObject>."
+#error "The header file 'Assessor.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
 #error "This file was generated using the moc from 6.7.3. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -34,16 +34,16 @@ QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
 
 #ifdef QT_MOC_HAS_STRINGDATA
-struct qt_meta_stringdata_CLASSsilverSCOPEAssessorFormENDCLASS_t {};
-constexpr auto qt_meta_stringdata_CLASSsilverSCOPEAssessorFormENDCLASS = QtMocHelpers::stringData(
-    "silver::AssessorForm"
+struct qt_meta_stringdata_CLASSsilverSCOPEAssessorENDCLASS_t {};
+constexpr auto qt_meta_stringdata_CLASSsilverSCOPEAssessorENDCLASS = QtMocHelpers::stringData(
+    "silver::Assessor"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
 #endif // !QT_MOC_HAS_STRINGDATA
 } // unnamed namespace
 
-Q_CONSTINIT static const uint qt_meta_data_CLASSsilverSCOPEAssessorFormENDCLASS[] = {
+Q_CONSTINIT static const uint qt_meta_data_CLASSsilverSCOPEAssessorENDCLASS[] = {
 
  // content:
       12,       // revision
@@ -59,20 +59,20 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSsilverSCOPEAssessorFormENDCLASS[
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject silver::AssessorForm::staticMetaObject = { {
+Q_CONSTINIT const QMetaObject silver::Assessor::staticMetaObject = { {
     QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
-    qt_meta_stringdata_CLASSsilverSCOPEAssessorFormENDCLASS.offsetsAndSizes,
-    qt_meta_data_CLASSsilverSCOPEAssessorFormENDCLASS,
+    qt_meta_stringdata_CLASSsilverSCOPEAssessorENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSsilverSCOPEAssessorENDCLASS,
     qt_static_metacall,
     nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSsilverSCOPEAssessorFormENDCLASS_t,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSsilverSCOPEAssessorENDCLASS_t,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<AssessorForm, std::true_type>
+        QtPrivate::TypeAndForceComplete<Assessor, std::true_type>
     >,
     nullptr
 } };
 
-void silver::AssessorForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void silver::Assessor::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     (void)_o;
     (void)_id;
@@ -80,20 +80,20 @@ void silver::AssessorForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c,
     (void)_a;
 }
 
-const QMetaObject *silver::AssessorForm::metaObject() const
+const QMetaObject *silver::Assessor::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *silver::AssessorForm::qt_metacast(const char *_clname)
+void *silver::Assessor::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_CLASSsilverSCOPEAssessorFormENDCLASS.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSsilverSCOPEAssessorENDCLASS.stringdata0))
         return static_cast<void*>(this);
     return QWidget::qt_metacast(_clname);
 }
 
-int silver::AssessorForm::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int silver::Assessor::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
     return _id;

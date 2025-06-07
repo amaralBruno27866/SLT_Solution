@@ -77,5 +77,4 @@ namespace utils {
 		}
 		return str;
 	}
-
 }

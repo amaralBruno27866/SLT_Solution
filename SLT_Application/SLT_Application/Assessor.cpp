@@ -6,13 +6,14 @@
 #include <QSqlError>
 #include <QVariant>
 #include <QMessageBox>
+#include <sstream>
 
 #include "Utils.h"
-#include "AssessorForm.h"
+#include "Assessor.h"
 
 using namespace std;
 namespace silver {
-	AssessorForm::AssessorForm(QWidget* parent)
+	Assessor::Assessor(QWidget* parent)
 		: QWidget(parent),
 		m_id(0),
 		m_firstName(),
@@ -24,12 +25,10 @@ namespace silver {
 		ui.setupUi(this);
 
 		// Conect the click signal to register button
-		connect(ui.btRegister, &QToolButton::clicked, this, &AssessorForm::handleFormSubmission);
+		connect(ui.btRegister, &QToolButton::clicked, this, &Assessor::handleFormSubmission);
 	}
 	
-	AssessorForm::AssessorForm() : AssessorForm(nullptr){}
-	
-	AssessorForm::AssessorForm(int id, const QString& firstName, const QString& lastName, const QString& email, const QString& phone, const Address& address)
+	Assessor::Assessor(int id, const QString& firstName, const QString& lastName, const QString& email, const QString& phone, const Address& address)
 		: QWidget(nullptr),
 		m_id(id),
 		m_firstName(firstName),
@@ -41,7 +40,7 @@ namespace silver {
 		ui.setupUi(this);
 	}
 	
-	AssessorForm::AssessorForm(const AssessorForm& other)
+	Assessor::Assessor(const Assessor& other)
 		: QWidget(nullptr),
 		m_id(other.m_id),
 		m_firstName(other.m_firstName),
@@ -53,7 +52,7 @@ namespace silver {
 		ui.setupUi(this);
 	}
 	
-	AssessorForm& AssessorForm::operator=(const AssessorForm& other)
+	Assessor& Assessor::operator=(const Assessor& other)
 	{
 		if (this != &other) {
 			m_id = other.m_id;
@@ -66,56 +65,56 @@ namespace silver {
 		return *this;
 	}
 	
-	AssessorForm::~AssessorForm() = default;
+	Assessor::~Assessor() = default;
 	
-	int AssessorForm::getId() const
+	int Assessor::getId() const
 	{
 		return m_id;
 	}
 
-	QString AssessorForm::getFirstName() const
+	QString Assessor::getFirstName() const
 	{
 		return m_firstName;
 	}
 	
-	QString AssessorForm::getLastName() const
+	QString Assessor::getLastName() const
 	{
 		return m_lastName;
 	}
 	
-	QString AssessorForm::getEmail() const
+	QString Assessor::getEmail() const
 	{
 		return m_email;
 	}
 	
-	QString AssessorForm::getPhone() const
+	QString Assessor::getPhone() const
 	{
 		return m_phone;
 	}
 	
-	Address AssessorForm::getAddress() const
+	Address Assessor::getAddress() const
 	{
 		return m_address;
 	}
 	
-	void AssessorForm::setId(int id)
+	void Assessor::setId(int id)
 	{
 		m_id = id;
 	}
 
-	void AssessorForm::setFirstName(const QString& firstName)
+	void Assessor::setFirstName(const QString& firstName)
 	{
 		string trimmed = utils::trim(firstName.toStdString());
 		m_firstName = QString::fromStdString(utils::capitalizeWords(trimmed));
 	}
 	
-	void AssessorForm::setLastName(const QString& lastName)
+	void Assessor::setLastName(const QString& lastName)
 	{
 		string trimmed = utils::trim(lastName.toStdString());
 		m_lastName = QString::fromStdString(utils::capitalizeWords(trimmed));
 	}
 	
-	void AssessorForm::setEmail(const QString& email)
+	void Assessor::setEmail(const QString& email)
 	{
 		string trimmed = utils::trim(email.toStdString());
 		if (utils::isValidEmail(trimmed)) {
@@ -126,7 +125,7 @@ namespace silver {
 		}
 	}
 	
-	void AssessorForm::setPhone(const QString& phone)
+	void Assessor::setPhone(const QString& phone)
 	{
 		string trimmed = utils::trim(phone.toStdString());
 		if(utils::isValidPhoneNumber(trimmed)) {
@@ -137,12 +136,12 @@ namespace silver {
 		}
 	}
 	
-	void AssessorForm::setAddress(const Address& address)
+	void Assessor::setAddress(const Address& address)
 	{
 		m_address = address;
 	}
 	
-	void AssessorForm::clearForm()
+	void Assessor::clearForm()
 	{
 		m_firstName.clear();
 		m_lastName.clear();
@@ -163,7 +162,7 @@ namespace silver {
 		if (ui.postalCodeLineEdit) ui.postalCodeLineEdit->clear();
 	}
 	
-	void AssessorForm::saveFormData()
+	void Assessor::saveFormData()
 	{
 		setFirstName(ui.firstNameLineedit ? ui.firstNameLineedit->text() : "");
 		setLastName(ui.lastNameLineEdit ? ui.lastNameLineEdit->text() : "");
@@ -211,7 +210,7 @@ namespace silver {
 		}
 	}
 	
-	void AssessorForm::loadFormData()
+	void Assessor::loadFormData()
 	{
 		if (m_id <= 0) {
 			QMessageBox::warning(this, "Load Error", "No valid assessor ID set for loading");
@@ -265,13 +264,13 @@ namespace silver {
 		if (ui.postalCodeLineEdit) ui.postalCodeLineEdit->setText(QString::fromStdString(m_address.getPostalCode()));
 	}
 	
-	void AssessorForm::displayForm()
+	void Assessor::displayForm()
 	{
 		loadFormData();
 		this->show();
 	}
 	
-	void AssessorForm::handleFormSubmission()
+	void Assessor::handleFormSubmission()
 	{
 		handleFormValidation();
 
@@ -283,21 +282,21 @@ namespace silver {
 		}
 	}
 	
-	void AssessorForm::handleFormCancellation()
+	void Assessor::handleFormCancellation()
 	{
 		clearForm();
 		this->close();
 		QMessageBox::information(this, "Cancelled", "Assessor registration has been cancelled.");
 	}
 	
-	void AssessorForm::handleFormReset()
+	void Assessor::handleFormReset()
 	{
 		clearForm();
 		m_id = 0; // Reset ID to indicate new entry
 		QMessageBox::information(this, "Reset", "Form has been reset. You can now enter a new assessor.");
 	}
 	
-	void AssessorForm::handleFormValidation()
+	void Assessor::handleFormValidation()
 	{
 		QStringList errors;
 
@@ -357,7 +356,7 @@ namespace silver {
 		}
 	}
 	
-	ostream& operator<<(ostream& os, const AssessorForm& form)
+	ostream& operator<<(ostream& os, const Assessor& form)
 	{
 		os << "Assessor ID: " << form.getId() << endl;
 		os << "First Name: " << form.getFirstName().toStdString() << endl;
@@ -369,7 +368,7 @@ namespace silver {
 		return os;
 	}
 	
-	istream& operator>>(istream& is, AssessorForm& form)
+	istream& operator>>(istream& is, Assessor& form)
 	{
 		int id;
 		string firstName, lastName, email, phone;

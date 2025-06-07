@@ -3,13 +3,28 @@
 #include <QWidget>
 #include "ui_ManageAssessor.h"
 
-class ManageAssessor : public QWidget
-{
-    Q_OBJECT
+#include "Assessor.h"
 
-public:
-    explicit ManageAssessor(QWidget* parent = nullptr);
+namespace silver {
+    class ManageAssessor : public QWidget
+    {
+        Q_OBJECT
 
-private:
-    Ui::ManageAssessor ui;
-};
+    public:
+        explicit ManageAssessor(QWidget* parent = nullptr);
+        ManageAssessor(const ManageAssessor&) = delete;
+        ManageAssessor& operator=(const ManageAssessor&) = delete;
+        void loadAssessors();
+        void addAssessor();
+        void editAssessor();
+		void viewAssessorDetails();
+        void deleteAssessor();
+        void searchAssessors(const QString& filter);
+        void handleSelectionChanged();
+        void showError(const QString& message);
+        void showSuccess(const QString& message);
+
+    private:
+        Ui::ManageAssessor ui;
+    };
+}

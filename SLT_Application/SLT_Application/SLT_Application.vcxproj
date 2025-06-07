@@ -99,7 +99,7 @@
     <QtUic Include="SLT_Application.ui" />
     <QtMoc Include="SLT_Application.h" />
     <ClCompile Include="Address.cpp" />
-    <ClCompile Include="AssessorForm.cpp" />
+    <ClCompile Include="Assessor.cpp" />
     <ClCompile Include="ManageAssessor.cpp" />
     <ClCompile Include="SLT_Application.cpp" />
     <ClCompile Include="main.cpp" />
@@ -107,7 +107,7 @@
     <ResourceCompile Include="SLT_Application.rc" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="AssessorForm.h" />
+    <QtMoc Include="Assessor.h" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="ManageAssessor.h" />

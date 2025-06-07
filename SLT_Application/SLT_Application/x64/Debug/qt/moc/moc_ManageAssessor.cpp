@@ -7,6 +7,7 @@
 *****************************************************************************/
 
 #include "../../../../ManageAssessor.h"
+#include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -33,16 +34,16 @@ QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
 
 #ifdef QT_MOC_HAS_STRINGDATA
-struct qt_meta_stringdata_CLASSManageAssessorENDCLASS_t {};
-constexpr auto qt_meta_stringdata_CLASSManageAssessorENDCLASS = QtMocHelpers::stringData(
-    "ManageAssessor"
+struct qt_meta_stringdata_CLASSsilverSCOPEManageAssessorENDCLASS_t {};
+constexpr auto qt_meta_stringdata_CLASSsilverSCOPEManageAssessorENDCLASS = QtMocHelpers::stringData(
+    "silver::ManageAssessor"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
 #endif // !QT_MOC_HAS_STRINGDATA
 } // unnamed namespace
 
-Q_CONSTINIT static const uint qt_meta_data_CLASSManageAssessorENDCLASS[] = {
+Q_CONSTINIT static const uint qt_meta_data_CLASSsilverSCOPEManageAssessorENDCLASS[] = {
 
  // content:
       12,       // revision
@@ -58,20 +59,20 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSManageAssessorENDCLASS[] = {
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject ManageAssessor::staticMetaObject = { {
+Q_CONSTINIT const QMetaObject silver::ManageAssessor::staticMetaObject = { {
     QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
-    qt_meta_stringdata_CLASSManageAssessorENDCLASS.offsetsAndSizes,
-    qt_meta_data_CLASSManageAssessorENDCLASS,
+    qt_meta_stringdata_CLASSsilverSCOPEManageAssessorENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSsilverSCOPEManageAssessorENDCLASS,
     qt_static_metacall,
     nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSManageAssessorENDCLASS_t,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSsilverSCOPEManageAssessorENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<ManageAssessor, std::true_type>
     >,
     nullptr
 } };
 
-void ManageAssessor::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void silver::ManageAssessor::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     (void)_o;
     (void)_id;
@@ -79,20 +80,20 @@ void ManageAssessor::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
     (void)_a;
 }
 
-const QMetaObject *ManageAssessor::metaObject() const
+const QMetaObject *silver::ManageAssessor::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *ManageAssessor::qt_metacast(const char *_clname)
+void *silver::ManageAssessor::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_CLASSManageAssessorENDCLASS.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSsilverSCOPEManageAssessorENDCLASS.stringdata0))
         return static_cast<void*>(this);
     return QWidget::qt_metacast(_clname);
 }
 
-int ManageAssessor::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int silver::ManageAssessor::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
     return _id;

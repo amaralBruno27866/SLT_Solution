@@ -9,7 +9,7 @@
 using namespace std;
 namespace silver {
 
-class AssessorForm : public QWidget {
+class Assessor : public QWidget {
     Q_OBJECT
 
 private:
@@ -24,17 +24,16 @@ private:
 	Address m_address;
 
 public:
-    explicit AssessorForm(QWidget* parent = nullptr);
+    explicit Assessor(QWidget* parent = nullptr);
 
-	AssessorForm();
-	AssessorForm(int id, const QString& firstName, const QString& lastName, const QString& email, const QString& phone, const Address& address);
+	Assessor(int id, const QString& firstName, const QString& lastName, const QString& email, const QString& phone, const Address& address);
 
 	// Copy constructos and assignment
-	AssessorForm(const AssessorForm& other);
-	AssessorForm& operator=(const AssessorForm& other);
+	Assessor(const Assessor& other);
+	Assessor& operator=(const Assessor& other);
 
 	// Destructor
-	~AssessorForm() override;
+	~Assessor() override;
 
 	// Getters
 	int getId() const;
@@ -82,8 +81,8 @@ public:
 };
 
 	// Stream operators
-	ostream& operator<<(ostream& os, const AssessorForm& form);
-	istream& operator>>(istream& is, AssessorForm& form);
+	ostream& operator<<(ostream& os, const Assessor& form);
+	istream& operator>>(istream& is, Assessor& form);
 
 } // namespace silver
 
