@@ -16,9 +16,9 @@ namespace silver {
         ManageAssessor& operator=(const ManageAssessor&) = delete;
         void loadAssessors();
         void addAssessor();
-        void editAssessor();
-		void viewAssessorDetails();
-        void deleteAssessor();
+        void editAssessor(int id);
+		void viewAssessorDetails(int id);
+        void deleteAssessor(int id);
         void searchAssessors(const QString& filter);
         void handleSelectionChanged();
         void showError(const QString& message);

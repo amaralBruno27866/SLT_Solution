@@ -58,6 +58,9 @@
     <ClCompile Include="Utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ActionButtons.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Assessor.h">
@@ -66,12 +69,21 @@
     <QtMoc Include="ManageAssessor.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="ActionButtons.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="AssessorForm.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="ManageAssessor.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="MyCases.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ActionButtons.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

@@ -210,7 +210,7 @@ namespace silver {
 		}
 	}
 	
-	void Assessor::loadFormData()
+	void Assessor::loadFormData() 
 	{
 		if (m_id <= 0) {
 			QMessageBox::warning(this, "Load Error", "No valid assessor ID set for loading");

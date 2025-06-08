@@ -21,7 +21,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_AssessorDetails
+class Ui_MyCases
 {
 public:
     QVBoxLayout *verticalLayout;
@@ -31,14 +31,14 @@ public:
     QToolButton *btSearch;
     QTableWidget *myCasesList;
 
-    void setupUi(QWidget *AssessorDetails)
+    void setupUi(QWidget *MyCases)
     {
-        if (AssessorDetails->objectName().isEmpty())
-            AssessorDetails->setObjectName("AssessorDetails");
-        AssessorDetails->resize(693, 508);
-        verticalLayout = new QVBoxLayout(AssessorDetails);
+        if (MyCases->objectName().isEmpty())
+            MyCases->setObjectName("MyCases");
+        MyCases->resize(717, 507);
+        verticalLayout = new QVBoxLayout(MyCases);
         verticalLayout->setObjectName("verticalLayout");
-        groupBox = new QGroupBox(AssessorDetails);
+        groupBox = new QGroupBox(MyCases);
         groupBox->setObjectName("groupBox");
         verticalLayout_2 = new QVBoxLayout(groupBox);
         verticalLayout_2->setObjectName("verticalLayout_2");
@@ -70,7 +70,7 @@ public:
 
         verticalLayout->addWidget(groupBox);
 
-        myCasesList = new QTableWidget(AssessorDetails);
+        myCasesList = new QTableWidget(MyCases);
         if (myCasesList->columnCount() < 6)
             myCasesList->setColumnCount(6);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
@@ -90,34 +90,34 @@ public:
         verticalLayout->addWidget(myCasesList);
 
 
-        retranslateUi(AssessorDetails);
+        retranslateUi(MyCases);
 
-        QMetaObject::connectSlotsByName(AssessorDetails);
+        QMetaObject::connectSlotsByName(MyCases);
     } // setupUi
 
-    void retranslateUi(QWidget *AssessorDetails)
+    void retranslateUi(QWidget *MyCases)
     {
-        AssessorDetails->setWindowTitle(QCoreApplication::translate("AssessorDetails", "Form", nullptr));
-        groupBox->setTitle(QCoreApplication::translate("AssessorDetails", "Search", nullptr));
-        btSearch->setText(QCoreApplication::translate("AssessorDetails", "Search", nullptr));
+        MyCases->setWindowTitle(QCoreApplication::translate("MyCases", "Form", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("MyCases", "Search", nullptr));
+        btSearch->setText(QCoreApplication::translate("MyCases", "Search", nullptr));
         QTableWidgetItem *___qtablewidgetitem = myCasesList->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QCoreApplication::translate("AssessorDetails", "Case ID", nullptr));
+        ___qtablewidgetitem->setText(QCoreApplication::translate("MyCases", "Case ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = myCasesList->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QCoreApplication::translate("AssessorDetails", "Client Name", nullptr));
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("MyCases", "Client Name", nullptr));
         QTableWidgetItem *___qtablewidgetitem2 = myCasesList->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QCoreApplication::translate("AssessorDetails", "Status", nullptr));
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("MyCases", "Status", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = myCasesList->horizontalHeaderItem(3);
-        ___qtablewidgetitem3->setText(QCoreApplication::translate("AssessorDetails", "Created aat", nullptr));
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("MyCases", "Created at", nullptr));
         QTableWidgetItem *___qtablewidgetitem4 = myCasesList->horizontalHeaderItem(4);
-        ___qtablewidgetitem4->setText(QCoreApplication::translate("AssessorDetails", "Modified at", nullptr));
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("MyCases", "Modified at", nullptr));
         QTableWidgetItem *___qtablewidgetitem5 = myCasesList->horizontalHeaderItem(5);
-        ___qtablewidgetitem5->setText(QCoreApplication::translate("AssessorDetails", "Actions", nullptr));
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("MyCases", "Actions", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class AssessorDetails: public Ui_AssessorDetails {};
+    class MyCases: public Ui_MyCases {};
 } // namespace Ui
 
 QT_END_NAMESPACE

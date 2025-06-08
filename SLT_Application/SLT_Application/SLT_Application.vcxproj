@@ -92,8 +92,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ActionButtons.cpp" />
     <ClCompile Include="Utils.cpp" />
     <QtRcc Include="SLT_Application.qrc" />
+    <QtUic Include="ActionButtons.ui" />
+    <QtUic Include="MyCases.ui" />
     <QtUic Include="AssessorForm.ui" />
     <QtUic Include="ManageAssessor.ui" />
     <QtUic Include="SLT_Application.ui" />
@@ -113,6 +116,7 @@
     <QtMoc Include="ManageAssessor.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="ActionButtons.h" />
     <ClInclude Include="Address.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>

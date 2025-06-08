@@ -26,6 +26,23 @@ std::string capitalizeWords(const std::string& str);
 // Substitui todas as ocorrências de 'from' por 'to'
 std::string replaceAll(std::string str, const std::string& from, const std::string& to);
 
+// This template executes a method without arguments in an object
+template<typename T>
+void reloadList(T* obj, void (T::* method)()) {
+    if (obj && method) {
+        (obj->*method)();
+    }
+}
+
+template<typename T>
+void showForm(T* form, int width = 500, int height = 400) {
+    if (!form) return;
+    form->setAttribute(Qt::WA_DeleteOnClose);
+    form->setWindowFlag(Qt::Window);
+    form->setFixedSize(width, height);
+    form->show();
+}
+
 } // namespace utils
 
 #endif // UTILS_H
