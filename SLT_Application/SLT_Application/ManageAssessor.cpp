@@ -18,6 +18,10 @@ namespace silver {
         QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
         db.setDatabaseName("clinic.db");
 
+        connect(ui.searchLineEdit, &QLineEdit::returnPressed, this, [this]() {
+            this->searchAssessors(ui.searchLineEdit->text());
+        });
+
         if (!db.open()) {
             qDebug() << "Error opening database:" << db.lastError().text();
         }
@@ -235,15 +239,13 @@ namespace silver {
         }
     }
     
-    void ManageAssessor::handleSelectionChanged()
-    {
-    }
-    
     void ManageAssessor::showError(const QString& message)
     {
+        QMessageBox::critical(this, tr("Error"), message);
     }
     
     void ManageAssessor::showSuccess(const QString& message)
     {
+        QMessageBox::information(this, tr("Success"), message);
     }
 }

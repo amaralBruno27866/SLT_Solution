@@ -20,7 +20,6 @@ namespace silver {
 		void viewAssessorDetails(int id);
         void deleteAssessor(int id);
         void searchAssessors(const QString& filter);
-        void handleSelectionChanged();
         void showError(const QString& message);
         void showSuccess(const QString& message);
 
