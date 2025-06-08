@@ -28,14 +28,16 @@ namespace silver {
 		connect(ui.btRegister, &QToolButton::clicked, this, &Assessor::handleFormSubmission);
 	}
 	
-	Assessor::Assessor(int id, const QString& firstName, const QString& lastName, const QString& email, const QString& phone, const Address& address)
+	Assessor::Assessor(int id, const QString& firstName, const QString& lastName, const QString& email, const QString& phone, const Address& address, const QString& createdAt, const QString& modifiedAt)
 		: QWidget(nullptr),
 		m_id(id),
 		m_firstName(firstName),
 		m_lastName(lastName),
 		m_email(email),
 		m_phone(phone),
-		m_address(address)
+		m_address(address),
+		m_createdAt(createdAt),
+		m_modifiedAt(modifiedAt)
 	{
 		ui.setupUi(this);
 	}
@@ -91,6 +93,16 @@ namespace silver {
 	{
 		return m_phone;
 	}
+
+	QString Assessor::getCreatedAt() const
+	{
+		return m_createdAt;
+	}
+
+	QString Assessor::getModifiedAt() const
+	{
+		return m_modifiedAt;
+	}
 	
 	Address Assessor::getAddress() const
 	{
@@ -134,6 +146,16 @@ namespace silver {
 		else {
 			m_phone.clear();
 		}
+	}
+
+	void Assessor::setCreatedAt(const QString& createdAt)
+	{
+		m_createdAt = createdAt;
+	}
+
+	void Assessor::setModifiedAt(const QString& modifiedAt)
+	{
+		m_modifiedAt = modifiedAt;
 	}
 	
 	void Assessor::setAddress(const Address& address)

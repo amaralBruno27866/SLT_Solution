@@ -17,8 +17,7 @@ public:
 
     explicit Assessor(QWidget* parent = nullptr);
 
-	Assessor(int id, const QString& firstName, const QString& lastName, const QString& email, const QString& phone, const Address& address);
-
+	Assessor(int id, const QString& firstName, const QString& lastName, const QString& email, const QString& phone, const Address& address, const QString& createdAt = "", const QString& modifiedAt = "");
 	// Copy constructos and assignment
 	Assessor(const Assessor& other);
 	Assessor& operator=(const Assessor& other);
@@ -32,6 +31,8 @@ public:
 	QString getLastName() const;
 	QString getEmail() const;
 	QString getPhone() const;
+	QString getCreatedAt() const;
+	QString getModifiedAt() const;
 	Address getAddress() const;
 
 	// Setters
@@ -40,6 +41,8 @@ public:
 	void setLastName(const QString& lastName);
 	void setEmail(const QString& email);
 	void setPhone(const QString& phone);
+	void setCreatedAt(const QString& createdAt);
+	void setModifiedAt(const QString& modifiedAt);
 	void setAddress(const Address& address);
 
 	// Function to clear the form
@@ -83,6 +86,8 @@ private:
 	QString m_lastName;
 	QString m_email;
 	QString m_phone;
+	QString m_createdAt;
+	QString m_modifiedAt;
 	Address m_address;
 };
 
