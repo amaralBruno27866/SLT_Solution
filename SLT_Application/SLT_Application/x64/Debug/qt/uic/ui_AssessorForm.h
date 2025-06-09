@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QFormLayout>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
@@ -49,6 +50,12 @@ public:
     QComboBox *provinceCbBox;
     QLabel *postalCodeLabel;
     QLineEdit *postalCodeLineEdit;
+    QFrame *frameCreationModification;
+    QFormLayout *formLayout_3;
+    QLineEdit *createdAtLineEdit;
+    QLabel *ModifiedAtLabel;
+    QLineEdit *modifiedAtLineEdit;
+    QLabel *CreatedAtLabel;
     QHBoxLayout *btArea;
     QSpacerItem *horizontalSpacer;
     QToolButton *btRegister;
@@ -60,7 +67,7 @@ public:
     {
         if (AssessorForm->objectName().isEmpty())
             AssessorForm->setObjectName("AssessorForm");
-        AssessorForm->resize(720, 456);
+        AssessorForm->resize(698, 470);
         QSizePolicy sizePolicy(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -206,6 +213,37 @@ public:
 
         verticalLayout->addWidget(addressBox);
 
+        frameCreationModification = new QFrame(AssessorForm);
+        frameCreationModification->setObjectName("frameCreationModification");
+        frameCreationModification->setFrameShape(QFrame::Shape::StyledPanel);
+        frameCreationModification->setFrameShadow(QFrame::Shadow::Raised);
+        formLayout_3 = new QFormLayout(frameCreationModification);
+        formLayout_3->setObjectName("formLayout_3");
+        createdAtLineEdit = new QLineEdit(frameCreationModification);
+        createdAtLineEdit->setObjectName("createdAtLineEdit");
+        createdAtLineEdit->setReadOnly(true);
+
+        formLayout_3->setWidget(1, QFormLayout::FieldRole, createdAtLineEdit);
+
+        ModifiedAtLabel = new QLabel(frameCreationModification);
+        ModifiedAtLabel->setObjectName("ModifiedAtLabel");
+
+        formLayout_3->setWidget(2, QFormLayout::FieldRole, ModifiedAtLabel);
+
+        modifiedAtLineEdit = new QLineEdit(frameCreationModification);
+        modifiedAtLineEdit->setObjectName("modifiedAtLineEdit");
+        modifiedAtLineEdit->setReadOnly(true);
+
+        formLayout_3->setWidget(3, QFormLayout::FieldRole, modifiedAtLineEdit);
+
+        CreatedAtLabel = new QLabel(frameCreationModification);
+        CreatedAtLabel->setObjectName("CreatedAtLabel");
+
+        formLayout_3->setWidget(0, QFormLayout::FieldRole, CreatedAtLabel);
+
+
+        verticalLayout->addWidget(frameCreationModification);
+
         btArea = new QHBoxLayout();
         btArea->setObjectName("btArea");
         btArea->setSizeConstraint(QLayout::SizeConstraint::SetDefaultConstraint);
@@ -319,6 +357,8 @@ public:
         provinceCbBox->setItemText(13, QCoreApplication::translate("AssessorForm", "Yukon (YT)", nullptr));
 
         postalCodeLabel->setText(QCoreApplication::translate("AssessorForm", "Postal Code", nullptr));
+        ModifiedAtLabel->setText(QCoreApplication::translate("AssessorForm", "Modified at", nullptr));
+        CreatedAtLabel->setText(QCoreApplication::translate("AssessorForm", "Created at", nullptr));
         btRegister->setText(QCoreApplication::translate("AssessorForm", "Register", nullptr));
         btMyCases->setText(QCoreApplication::translate("AssessorForm", "My Cases", nullptr));
         btCancel->setText(QCoreApplication::translate("AssessorForm", "Cancel", nullptr));

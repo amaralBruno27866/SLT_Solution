@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    // --- Criação do banco e tabelas ---
+    // --- Create the databse columns ---
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("clinic.db");
     if (!db.open()) {
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     }
     QSqlQuery query(db);
 
-    // Tabela assessor
+    // Table ASSESSOR
     bool ok = query.exec(
         "CREATE TABLE IF NOT EXISTS assessor ("
         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // Tabela address (exemplo)
+    // Model of table
     ok = query.exec(
         "CREATE TABLE IF NOT EXISTS address ("
         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
         QMessageBox::critical(nullptr, "Database Error", query.lastError().text());
         return 1;
     }
-    // --- Fim da criação do banco ---
+    // --- End of database creation ---
 
     silver::SLT_Application w;
     w.show();

@@ -6,6 +6,7 @@
 #include <QSqlError>
 #include <QVariant>
 #include <QMessageBox>
+#include <QDateTime>
 #include <sstream>
 
 #include "Utils.h"
@@ -20,7 +21,9 @@ namespace silver {
 		m_lastName(),
 		m_email(),
 		m_phone(),
-		m_address()
+		m_address(),
+		m_createdAt(),
+		m_modifiedAt()
 	{
 		ui.setupUi(this);
 
@@ -28,8 +31,15 @@ namespace silver {
 		connect(ui.btRegister, &QToolButton::clicked, this, &Assessor::handleFormSubmission);
 	}
 	
-	Assessor::Assessor(int id, const QString& firstName, const QString& lastName, const QString& email, const QString& phone, const Address& address, const QString& createdAt, const QString& modifiedAt)
-		: QWidget(nullptr),
+	Assessor::Assessor(
+		int id, 
+		const QString& firstName, 
+		const QString& lastName, 
+		const QString& email, 
+		const QString& phone, 
+		const Address& address, 
+		const QString& createdAt, 
+		const QString& modifiedAt) : QWidget(nullptr),
 		m_id(id),
 		m_firstName(firstName),
 		m_lastName(lastName),
@@ -49,7 +59,9 @@ namespace silver {
 		m_lastName(other.m_lastName),
 		m_email(other.m_email),
 		m_phone(other.m_phone),
-		m_address(other.m_address)
+		m_address(other.m_address),
+		m_createdAt(other.m_createdAt),
+		m_modifiedAt(other.m_modifiedAt)
 	{
 		ui.setupUi(this);
 	}
@@ -63,6 +75,8 @@ namespace silver {
 			m_email = other.m_email;
 			m_phone = other.m_phone;
 			m_address = other.m_address;
+			m_createdAt = other.m_createdAt;
+			m_modifiedAt = other.m_modifiedAt;
 		}
 		return *this;
 	}
@@ -169,6 +183,8 @@ namespace silver {
 		m_lastName.clear();
 		m_email.clear();
 		m_phone.clear();
+		m_createdAt.clear();
+		m_modifiedAt.clear();
 		m_address = Address();
 
 		// Personal information section
@@ -203,32 +219,83 @@ namespace silver {
 		addr.setPostalCode(postalCode);
 		setAddress(addr);
 
-		// Persist the data to the database
 		QSqlDatabase db = QSqlDatabase::database("silverLiningTherapyDB");
 		if (!db.isOpen()) {
 			QMessageBox::warning(this, "Database Error", "Database is not open.");
 			return;
 		}
 
-		QSqlQuery query(db);
-		query.prepare(R"(
-			INSERT INTO assessors (first_name, last_name, email, phone, street, city, province, postal_code)
-			VALUES (:first_name, :last_name, :email, :phone, :street, :city, :province, :postal_code)
-		)");
-		query.addBindValue(m_firstName);
-		query.addBindValue(m_lastName);
-		query.addBindValue(m_email);
-		query.addBindValue(m_phone);
-		query.addBindValue(QString::fromStdString(m_address.getStreet()));
-		query.addBindValue(QString::fromStdString(m_address.getCity()));
-		query.addBindValue(QString::fromStdString(m_address.getProvince()));
-		query.addBindValue(QString::fromStdString(m_address.getPostalCode()));
+		QString now = QDateTime::currentDateTime().toString(Qt::ISODate);
 
-		if (!query.exec()) {
-			QMessageBox::critical(this, "Database Error", query.lastError().text());
-		} else {
-			m_id = query.lastInsertId().toInt();
-			QMessageBox::information(this, "Success", "Assessor registered successfully!");
+		if (m_id == 0) {
+
+			// Generate a new record
+			m_createdAt = now;
+			m_modifiedAt = now;
+
+			QSqlQuery query(db);
+			query.prepare(R"(
+            INSERT INTO assessors (
+                first_name, last_name, email, phone, street, city, province, postal_code, created_at, modified_at
+            ) VALUES (
+                :first_name, :last_name, :email, :phone, :street, :city, :province, :postal_code, :created_at, :modified_at
+            )
+        )");
+			query.addBindValue(m_firstName);
+			query.addBindValue(m_lastName);
+			query.addBindValue(m_email);
+			query.addBindValue(m_phone);
+			query.addBindValue(QString::fromStdString(m_address.getStreet()));
+			query.addBindValue(QString::fromStdString(m_address.getCity()));
+			query.addBindValue(QString::fromStdString(m_address.getProvince()));
+			query.addBindValue(QString::fromStdString(m_address.getPostalCode()));
+			query.addBindValue(m_createdAt);
+			query.addBindValue(m_modifiedAt);
+
+			if (!query.exec()) {
+				QMessageBox::critical(this, "Database Error", query.lastError().text());
+			}
+			else {
+				m_id = query.lastInsertId().toInt();
+				QMessageBox::information(this, "Success", "Assessor registered successfully!");
+			}
+		}
+		else {
+			
+			// Updatate existing record
+			m_modifiedAt = now;
+
+			QSqlQuery query(db);
+			query.prepare(R"(
+            UPDATE assessors SET
+                first_name = :first_name,
+                last_name = :last_name,
+                email = :email,
+                phone = :phone,
+                street = :street,
+                city = :city,
+                province = :province,
+                postal_code = :postal_code,
+                modified_at = :modified_at
+            WHERE id = :id
+        )");
+			query.addBindValue(m_firstName);
+			query.addBindValue(m_lastName);
+			query.addBindValue(m_email);
+			query.addBindValue(m_phone);
+			query.addBindValue(QString::fromStdString(m_address.getStreet()));
+			query.addBindValue(QString::fromStdString(m_address.getCity()));
+			query.addBindValue(QString::fromStdString(m_address.getProvince()));
+			query.addBindValue(QString::fromStdString(m_address.getPostalCode()));
+			query.addBindValue(m_modifiedAt);
+			query.addBindValue(m_id);
+
+			if (!query.exec()) {
+				QMessageBox::critical(this, "Database Error", query.lastError().text());
+			}
+			else {
+				QMessageBox::information(this, "Success", "Assessor updated successfully!");
+			}
 		}
 	}
 	
@@ -382,6 +449,9 @@ namespace silver {
 	{
 		m_mode = mode;
 
+		if (ui.frameCreationModification)
+			ui.frameCreationModification->setVisible(mode == FormMode::Detail);
+
 		switch (mode) {
 		case FormMode::Create:
 			if (ui.page_title) ui.page_title->setText("Create Assessor");
@@ -448,15 +518,18 @@ namespace silver {
 		os << "Email: " << form.getEmail().toStdString() << endl;
 		os << "Phone: " << form.getPhone().toStdString() << endl;
 		os << "Address: " << form.getAddress().toString() << endl;
-
+		os << "Created At: " << form.getCreatedAt().toStdString() << endl;
+		os << "Modified At: " << form.getModifiedAt().toStdString() << endl;
+		
 		return os;
 	}
 	
 	istream& operator>>(istream& is, Assessor& form)
 	{
-		int id;
+		int id = 0;
 		string firstName, lastName, email, phone;
 		string street, city, province, postalCode;
+		string createdAt, modifiedAt;
 
 		// Read each field in one line
 		string line;
@@ -496,11 +569,55 @@ namespace silver {
 			phone = (pos != string::npos) ? line.substr(pos + 1) : "";
 		}
 
-		// Address
+		// Created At
 		if (getline(is, line)) {
 			auto pos = line.find(':');
-			string addrStr = (pos != string::npos) ? line.substr(pos + 1) : "";
-			istringstream addrStream(addrStr);
+			createdAt = (pos != string::npos) ? line.substr(pos + 1) : "";
 		}
+
+		// Modified At
+		if (getline(is, line)) {
+			auto pos = line.find(':');
+			modifiedAt = (pos != string::npos) ? line.substr(pos + 1) : "";
+		}
+
+		// Street
+		if (getline(is, line)) {
+			auto pos = line.find(':');
+			street = (pos != string::npos) ? line.substr(pos + 1) : "";
+		}
+
+		// City
+		if (getline(is, line)) {
+			auto pos = line.find(':');
+			city = (pos != string::npos) ? line.substr(pos + 1) : "";
+		}
+
+		// Province
+		if (getline(is, line)) {
+			auto pos = line.find(':');
+			province = (pos != string::npos) ? line.substr(pos + 1) : "";
+		}
+		else {
+			province = "N/A";
+		}
+
+		// PostalCode
+		if (getline(is, line)) {
+			auto pos = line.find(':');
+			postalCode = (pos != string::npos) ? line.substr(pos + 1) : "";
+		}
+
+		// Set fields in the form
+		form.setId(id);
+		form.setFirstName(QString::fromStdString(firstName));
+		form.setLastName(QString::fromStdString(lastName));
+		form.setEmail(QString::fromStdString(email));
+		form.setPhone(QString::fromStdString(phone));
+		form.setCreatedAt(QString::fromStdString(createdAt));
+		form.setModifiedAt(QString::fromStdString(modifiedAt));
+		form.setAddress(Address(street, city, province, postalCode));
+
+		return is;
 	}
 }

@@ -7,11 +7,6 @@
 using namespace std;
 namespace silver {
 	class Address {
-	private:
-		string m_street;
-		string m_city;
-		string m_province;
-		string m_postalCode;
 	public:
 		Address();
 		Address(const string& street, const string& city, const string& province, const string& postalCode);
@@ -45,6 +40,14 @@ namespace silver {
 		// Stream methods
 		ostream& display(ostream& os) const;
 		istream& read(istream& is);
+
+	private:
+		string m_street;
+		string m_city;
+		string m_province;
+		string m_postalCode;
+		string m_createdAt;
+		string m_modifiedAt;
 	};
 
 	// Stream operators

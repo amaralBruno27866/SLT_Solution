@@ -14,8 +14,13 @@ namespace silver {
     Address::Address()
         : m_street(), m_city(), m_province(), m_postalCode() {}
 
-    Address::Address(const std::string& street, const std::string& city, const std::string& province, const std::string& postalCode)
-        : m_street(street), m_city(city), m_province(province), m_postalCode(postalCode) {}
+    Address::Address(
+        const string& street, 
+        const string& city, 
+        const string& province, 
+        const string& postalCode)
+    : m_street(street), m_city(city), m_province(province), m_postalCode(postalCode)
+    {}
 
     Address::Address(const Address& other)
         : m_street(other.m_street), m_city(other.m_city), m_province(other.m_province), m_postalCode(other.m_postalCode) {}
@@ -59,24 +64,20 @@ namespace silver {
 
     string Address::toString()
     {
-        // Remove espaços e converte para maiúsculo
         string temp;
         for (char c : m_postalCode) {
             if (!isspace(static_cast<unsigned char>(c)))
                 temp += toupper(static_cast<unsigned char>(c));
         }
-        // Deve ter 7 caracteres após remoção dos espaços
         if (temp.size() != 7)
             return "";
 
-        // Insere espaço após o terceiro caractere
         temp.insert(3, " ");
         return temp;
     }
 
     bool Address::isValidPostalCode(const string& code)
     {
-        // Formato: A1B 2C3 (letra, número, letra, espaço, número, letra, número)
         static const std::regex pattern("^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$");
         string formatted = formatPostalCode(code);
         return std::regex_match(formatted, pattern);
@@ -99,7 +100,6 @@ namespace silver {
     {
         getline(is, m_street, ',');
         if (!is) return is;
-        // Remove leading space if present
         if (!m_street.empty() && m_street[0] == ' ') m_street.erase(0, 1);
 
         getline(is, m_city, ',');
