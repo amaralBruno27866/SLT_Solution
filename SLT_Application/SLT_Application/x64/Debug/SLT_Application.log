@@ -1,27 +1,4 @@
 ﻿   Qt/MSBuild: 3.4.0.1
-  Reading Qt configuration (C:/Qt/6.7.3/msvc2022_64/bin/qmake)
    Qt: 6.7.3
-  uic ActionButtons.ui
-  uic MyCases.ui
-  uic AssessorForm.ui
-  uic ManageAssessor.ui
-  uic SLT_Application.ui
-  rcc SLT_Application.qrc
-  moc SLT_Application.h
-  moc Assessor.h
-  moc ManageAssessor.h
-  moc ActionButtons.h
-   RCC: Warning: No resources in 'C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\SLT_Application.qrc'.
-  ActionButtons.cpp
-  Utils.cpp
-  Address.cpp
-  Assessor.cpp
-  ManageAssessor.cpp
   SLT_Application.cpp
-  main.cpp
-  qrc_SLT_Application.cpp
-  moc_SLT_Application.cpp
-  moc_Assessor.cpp
-  moc_ManageAssessor.cpp
-  moc_ActionButtons.cpp
   SLT_Application.vcxproj -> C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\x64\Debug\SLT_Application.exe

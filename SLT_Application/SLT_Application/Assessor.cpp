@@ -29,6 +29,9 @@ namespace silver {
 
 		// Conect the click signal to register button
 		connect(ui.btRegister, &QToolButton::clicked, this, &Assessor::handleFormSubmission);
+		connect(ui.btCancel, &QToolButton::clicked, this, &Assessor::handleFormCancellation);
+
+		setMode(FormMode::Create); // Default mode is Create
 	}
 	
 	Assessor::Assessor(
@@ -39,7 +42,8 @@ namespace silver {
 		const QString& phone, 
 		const Address& address, 
 		const QString& createdAt, 
-		const QString& modifiedAt) : QWidget(nullptr),
+		const QString& modifiedAt,
+		FormMode mode) : QWidget(nullptr),
 		m_id(id),
 		m_firstName(firstName),
 		m_lastName(lastName),
@@ -50,6 +54,7 @@ namespace silver {
 		m_modifiedAt(modifiedAt)
 	{
 		ui.setupUi(this);
+		setMode(mode);
 	}
 	
 	Assessor::Assessor(const Assessor& other)
@@ -385,7 +390,7 @@ namespace silver {
 		QMessageBox::information(this, "Reset", "Form has been reset. You can now enter a new assessor.");
 	}
 	
-	void Assessor::handleFormValidation()
+	bool Assessor::handleFormValidation()
 	{
 		QStringList errors;
 
@@ -442,7 +447,9 @@ namespace silver {
 		// Exibe mensagens de erro, se houver
 		if (!errors.isEmpty()) {
 			QMessageBox::warning(this, "Validation Error", errors.join("\n"));
+			return false;
 		}
+		return true;
 	}
 
 	void Assessor::setMode(FormMode mode)
@@ -508,6 +515,26 @@ namespace silver {
 			
 			break;
 		}
+	}
+
+	void Assessor::updateModelFromUI()
+	{
+		setFirstName(ui.firstNameLineedit ? ui.firstNameLineedit->text() : "");
+		setLastName(ui.lastNameLineEdit ? ui.lastNameLineEdit->text() : "");
+		setPhone(ui.phoneNumberLineEdit ? ui.phoneNumberLineEdit->text() : "");
+		setEmail(ui.emailLineEdit ? ui.emailLineEdit->text() : "");
+
+		string street = ui.streetLineEdit ? ui.streetLineEdit->text().toStdString() : "";
+		string city = ui.cityLineEdit ? ui.cityLineEdit->text().toStdString() : "";
+		string province = ui.provinceCbBox ? ui.provinceCbBox->currentText().toStdString() : "";
+		string postalCode = ui.postalCodeLineEdit ? ui.postalCodeLineEdit->text().toStdString() : "";
+
+		Address addr;
+		addr.setStreet(street);
+		addr.setCity(city);
+		addr.setProvince(province);
+		addr.setPostalCode(postalCode);
+		setAddress(addr);
 	}
 	
 	ostream& operator<<(ostream& os, const Assessor& form)

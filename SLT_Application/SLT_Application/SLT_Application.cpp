@@ -19,7 +19,7 @@ void SLT_Application::on_actionAdd_a_new_assessor_triggered()
     Assessor* window = new Assessor(this);
     window->setAttribute(Qt::WA_DeleteOnClose);
     window->setWindowFlags(Qt::Window);
-    window->setFixedSize(500, 400);
+    window->setFixedSize(700, 500);
     window->show();
 }
 

@@ -17,8 +17,7 @@ public:
 
     explicit Assessor(QWidget* parent = nullptr);
 
-	Assessor(int id, const QString& firstName, const QString& lastName, const QString& email, const QString& phone, const Address& address, const QString& createdAt = "", const QString& modifiedAt = "");
-	// Copy constructos and assignment
+	Assessor(int id, const QString& firstName, const QString& lastName, const QString& email, const QString& phone, const Address& address, const QString& createdAt = "", const QString& modifiedAt = "", FormMode mode = FormMode::Edit);	// Copy constructos and assignment
 	Assessor(const Assessor& other);
 	Assessor& operator=(const Assessor& other);
 
@@ -67,10 +66,13 @@ public:
 	void handleFormReset();
 
 	// Function to handle form validation
-	void handleFormValidation();
+	bool handleFormValidation();
 
 	// Function to handle form state
 	void setMode(FormMode mode);
+
+	// Function to update the UI from the model
+	void updateModelFromUI();
 
 	// Stream methods
 	ostream& display(ostream& os) const;

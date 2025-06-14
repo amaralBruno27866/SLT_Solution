@@ -16,7 +16,6 @@
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -42,7 +41,6 @@ public:
     QMenu *menuCase_Profile;
     QMenu *menuForms;
     QMenu *menuSettings;
-    QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *SLT_ApplicationClass)
@@ -116,10 +114,6 @@ public:
         menuSettings->setObjectName("menuSettings");
         menuSettings->setFont(font);
         SLT_ApplicationClass->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(SLT_ApplicationClass);
-        mainToolBar->setObjectName("mainToolBar");
-        mainToolBar->setFont(font);
-        SLT_ApplicationClass->addToolBar(Qt::ToolBarArea::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(SLT_ApplicationClass);
         statusBar->setObjectName("statusBar");
         statusBar->setFont(font);

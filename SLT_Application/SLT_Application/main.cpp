@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    // --- Create the databse columns ---
+    // --- Create the database and tables ---
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("clinic.db");
     if (!db.open()) {
@@ -18,7 +18,10 @@ int main(int argc, char *argv[])
     }
     QSqlQuery query(db);
 
-    // Table ASSESSOR
+    // Activate restrition for foreign keys in SQLite
+    query.exec("PRAGMA foreign_keys = ON;");
+
+    // Table assessor
     bool ok = query.exec(
         "CREATE TABLE IF NOT EXISTS assessor ("
         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -35,18 +38,17 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // Model of table
+    // Tabela address
     ok = query.exec(
         "CREATE TABLE IF NOT EXISTS address ("
         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-        "assessor_id INTEGER,"
+        "assessor_id INTEGER NOT NULL,"
         "street TEXT,"
         "city TEXT,"
         "province TEXT,"
         "postal_code TEXT,"
-        "created_at TEXT,"
-        "modified_at TEXT,"
-        "FOREIGN KEY(assessor_id) REFERENCES assessor(id))"
+        "FOREIGN KEY(assessor_id) REFERENCES assessor(id) ON DELETE CASCADE"
+        ")"
     );
     if (!ok) {
         QMessageBox::critical(nullptr, "Database Error", query.lastError().text());
