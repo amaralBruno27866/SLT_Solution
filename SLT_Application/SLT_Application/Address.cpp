@@ -12,22 +12,25 @@ using namespace std;
 namespace silver {
 
     Address::Address()
-        : m_street(), m_city(), m_province(), m_postalCode() {}
+        : m_id(0), m_assessorId(0), m_street(), m_city(), m_province(), m_postalCode() { }
 
     Address::Address(
+        const int id,
+        const int assessorId,
         const string& street, 
         const string& city, 
         const string& province, 
         const string& postalCode)
-    : m_street(street), m_city(city), m_province(province), m_postalCode(postalCode)
-    {}
+        : m_id(id), m_assessorId(assessorId), m_street(street), m_city(city), m_province(province), m_postalCode(postalCode) { }
 
     Address::Address(const Address& other)
-        : m_street(other.m_street), m_city(other.m_city), m_province(other.m_province), m_postalCode(other.m_postalCode) {}
+        : m_id(other.m_id), m_assessorId(other.m_assessorId), m_street(other.m_street), m_city(other.m_city), m_province(other.m_province), m_postalCode(other.m_postalCode) { }
 
     Address& Address::operator=(const Address& other)
     {
         if (this != &other) {
+            m_id = other.m_id;
+            m_assessorId = other.m_assessorId;
             m_street = other.m_street;
             m_city = other.m_city;
             m_province = other.m_province;
@@ -38,10 +41,20 @@ namespace silver {
 
     Address::~Address() = default;
 
+    const int& Address::getId() const { return m_id; }
+    const int& Address::getAssessorId() const { return m_assessorId; }
     const string& Address::getStreet() const { return m_street; }
     const string& Address::getCity() const { return m_city; }
     const string& Address::getProvince() const { return m_province; }
     const string& Address::getPostalCode() const { return m_postalCode; }
+
+    void Address::setId(int id) {
+        m_id = id;
+    }
+
+    void Address::setAssessorId(int assessorId) {
+        m_assessorId = assessorId;
+    }
 
     void Address::setStreet(const string& street) {
         m_street = utils::trim(utils::toUpper(street));

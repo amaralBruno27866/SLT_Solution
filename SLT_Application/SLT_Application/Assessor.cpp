@@ -224,7 +224,7 @@ namespace silver {
 		addr.setPostalCode(postalCode);
 		setAddress(addr);
 
-		QSqlDatabase db = QSqlDatabase::database("silverLiningTherapyDB");
+		QSqlDatabase db = QSqlDatabase::database();
 		if (!db.isOpen()) {
 			QMessageBox::warning(this, "Database Error", "Database is not open.");
 			return;
@@ -240,7 +240,7 @@ namespace silver {
 
 			QSqlQuery query(db);
 			query.prepare(R"(
-            INSERT INTO assessors (
+            INSERT INTO assessor (
                 first_name, last_name, email, phone, street, city, province, postal_code, created_at, modified_at
             ) VALUES (
                 :first_name, :last_name, :email, :phone, :street, :city, :province, :postal_code, :created_at, :modified_at
@@ -272,7 +272,7 @@ namespace silver {
 
 			QSqlQuery query(db);
 			query.prepare(R"(
-            UPDATE assessors SET
+            UPDATE assessor SET
                 first_name = :first_name,
                 last_name = :last_name,
                 email = :email,
@@ -311,7 +311,7 @@ namespace silver {
 			return;
 		}
 
-		QSqlDatabase db = QSqlDatabase::database("silverLiningTherapyDB");
+		QSqlDatabase db = QSqlDatabase::database();
 		if (!db.isOpen()) {
 			QMessageBox::warning(this, "Database Error", "Database is not open.");
 			return;
@@ -366,9 +366,9 @@ namespace silver {
 	
 	void Assessor::handleFormSubmission()
 	{
-		handleFormValidation();
+		updateModelFromUI();
 
-		if (!m_firstName.isEmpty() && !m_lastName.isEmpty() && !m_email.isEmpty() && !m_phone.isEmpty()) {
+		if (handleFormValidation()) {
 			saveFormData();
 		}
 		else {
