@@ -98,8 +98,18 @@ namespace silver {
 
     string Address::formatPostalCode(const string& code)
     {
-        string formattedCode = utils::trim(code);
-
+        // Remove the spaces
+        string formattedCode = utils::removeSpaces(code);
+		// Convert to uppercase
+        formattedCode = utils::toUpper(formattedCode);
+		// Insert space after the third character if it needs it
+        if (formattedCode.length() == 6) {
+            formattedCode.insert(3, " ");
+        }
+        // If there is already a space in the correct position, keep it
+        else if (formattedCode.length() == 7 && formattedCode[3] != ' ') {
+            formattedCode = formattedCode.substr(0, 3) + " " + formattedCode.substr(3);
+        }
         return formattedCode;
     }
 

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>698</width>
-    <height>470</height>
+    <height>524</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -205,6 +205,9 @@
          <font>
           <pointsize>9</pointsize>
          </font>
+        </property>
+        <property name="currentText">
+         <string>N/A</string>
         </property>
         <item>
          <property name="text">

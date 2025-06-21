@@ -83,7 +83,6 @@ private:
 	Ui::AssessorForm ui;
 
 	int m_id;
-
 	QString m_firstName;
 	QString m_lastName;
 	QString m_email;

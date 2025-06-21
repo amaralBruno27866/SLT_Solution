@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <cctype>
 #include <regex>
+#include <QRegularExpression>
 
 namespace utils {
 
@@ -76,5 +77,19 @@ namespace utils {
 			start_pos += to.length();
 		}
 		return str;
+	}
+
+	QString formatPhoneNumber(const QString& phone)
+	{
+		QString digits = phone;
+		digits.remove(QRegularExpression("[^0-9]"));
+		if (digits.length() == 10) {
+			return QString("(%1) %2-%3")
+				.arg(digits.mid(0, 3))
+				.arg(digits.mid(3, 3))
+				.arg(digits.mid(6, 4));
+		}
+
+		return phone;
 	}
 }

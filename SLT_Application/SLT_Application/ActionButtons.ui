@@ -18,7 +18,7 @@
     <widget class="QToolButton" name="btView">
      <property name="styleSheet">
       <string notr="true">QToolButton {
-    background-color: #44b2f8;
+    background-color: #28a745;
     color: white;
     border: none;
     border-radius: 6px;
@@ -29,14 +29,11 @@
 }
 
 QToolButton:hover {
-    background-color: #44f8f8;
+    background-color: #5cd65c;
 }</string>
      </property>
      <property name="text">
       <string>View</string>
-     </property>
-     <property name="icon">
-      <iconset theme="QIcon::ThemeIcon::CameraWeb"/>
      </property>
      <property name="iconSize">
       <size>
@@ -50,7 +47,7 @@ QToolButton:hover {
     <widget class="QToolButton" name="btEdit">
      <property name="styleSheet">
       <string notr="true">QToolButton {
-    background-color: #ffbb46;
+    background-color: #00008B;
     color: white;
     border: none;
     border-radius: 6px;
@@ -61,14 +58,11 @@ QToolButton:hover {
 }
 
 QToolButton:hover {
-    background-color: #ffe936;
+    background-color: #0000FF
 }</string>
      </property>
      <property name="text">
       <string>Edit</string>
-     </property>
-     <property name="icon">
-      <iconset theme="mail-message-new"/>
      </property>
      <property name="iconSize">
       <size>
@@ -97,10 +91,7 @@ QToolButton:hover {
 }</string>
      </property>
      <property name="text">
-      <string>Delete</string>
-     </property>
-     <property name="icon">
-      <iconset theme="QIcon::ThemeIcon::EditDelete"/>
+      <string>Del</string>
      </property>
      <property name="iconSize">
       <size>

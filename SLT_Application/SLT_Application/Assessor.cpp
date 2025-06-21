@@ -201,7 +201,7 @@ namespace silver {
 		// Address information section
 		if (ui.streetLineEdit) ui.streetLineEdit->clear();
 		if (ui.cityLineEdit) ui.cityLineEdit->clear();
-		if (ui.provinceCbBox) ui.provinceCbBox->setCurrentIndex(0); // Select "N/A"
+		if (ui.provinceCbBox) ui.provinceCbBox->setCurrentIndex(0);
 		if (ui.postalCodeLineEdit) ui.postalCodeLineEdit->clear();
 	}
 	
@@ -209,7 +209,7 @@ namespace silver {
 	{
 		setFirstName(ui.firstNameLineedit ? ui.firstNameLineedit->text() : "");
 		setLastName(ui.lastNameLineEdit ? ui.lastNameLineEdit->text() : "");
-		setPhone(ui.phoneNumberLineEdit ? ui.phoneNumberLineEdit->text() : "");
+		setPhone(ui.phoneNumberLineEdit ? utils::formatPhoneNumber(ui.phoneNumberLineEdit->text()) : "");
 		setEmail(ui.emailLineEdit ? ui.emailLineEdit->text() : "");
 
 		string street = ui.streetLineEdit ? ui.streetLineEdit->text().toStdString() : "";
@@ -233,75 +233,155 @@ namespace silver {
 		QString now = QDateTime::currentDateTime().toString(Qt::ISODate);
 
 		if (m_id == 0) {
-
-			// Generate a new record
+			// Insert a new assessor
 			m_createdAt = now;
 			m_modifiedAt = now;
 
 			QSqlQuery query(db);
 			query.prepare(R"(
             INSERT INTO assessor (
-                first_name, last_name, email, phone, street, city, province, postal_code, created_at, modified_at
-            ) VALUES (
-                :first_name, :last_name, :email, :phone, :street, :city, :province, :postal_code, :created_at, :modified_at
-            )
+				firstname, lastname, phone, email, created_at, modified_at
+			) VALUES (
+				:firstname, :lastname, :phone, :email, :created_at, :modified_at
+			)
         )");
-			query.addBindValue(m_firstName);
-			query.addBindValue(m_lastName);
-			query.addBindValue(m_email);
-			query.addBindValue(m_phone);
-			query.addBindValue(QString::fromStdString(m_address.getStreet()));
-			query.addBindValue(QString::fromStdString(m_address.getCity()));
-			query.addBindValue(QString::fromStdString(m_address.getProvince()));
-			query.addBindValue(QString::fromStdString(m_address.getPostalCode()));
-			query.addBindValue(m_createdAt);
-			query.addBindValue(m_modifiedAt);
+			query.bindValue(":firstname", m_firstName);
+			query.bindValue(":lastname", m_lastName);
+			query.bindValue(":phone", m_phone);
+			query.bindValue(":email", m_email);
+			query.bindValue(":created_at", m_createdAt);
+			query.bindValue(":modified_at", m_modifiedAt);
 
 			if (!query.exec()) {
 				QMessageBox::critical(this, "Database Error", query.lastError().text());
+				return;
+			}
+
+			m_id = query.lastInsertId().toInt();
+
+			// Insert a new address
+			QSqlQuery addressQuery(db);
+			addressQuery.prepare(R"(
+			INSERT INTO address (
+				assessor_id, street, city, province, postal_code, created_at, modified_at
+			) VALUES (
+				:assessor_id, :street, :city, :province, :postal_code, :created_at, :modified_at
+			)
+        )");
+			addressQuery.bindValue(":assessor_id", m_id);
+			addressQuery.bindValue(":street", QString::fromStdString(m_address.getStreet()));
+			addressQuery.bindValue(":city", QString::fromStdString(m_address.getCity()));
+			addressQuery.bindValue(":province", QString::fromStdString(m_address.getProvince()));
+			addressQuery.bindValue(":postal_code", QString::fromStdString(m_address.getPostalCode()));
+			addressQuery.bindValue(":created_at", m_createdAt);
+			addressQuery.bindValue(":modified_at", m_modifiedAt);
+
+
+			if (!addressQuery.exec()) {
+				QMessageBox::critical(this, "Database Error", addressQuery.lastError().text());
 			}
 			else {
-				m_id = query.lastInsertId().toInt();
-				QMessageBox::information(this, "Success", "Assessor registered successfully!");
+				QMessageBox::information(this, "Success", "Assessor and address registered successfully!");
 			}
 		}
 		else {
-			
-			// Updatate existing record
 			m_modifiedAt = now;
 
+			QSqlQuery checkAssessorQuery(db);
+			checkAssessorQuery.prepare("SELECT COUNT(*) FROM assessor WHERE id = :id");
+			checkAssessorQuery.bindValue(":id", m_id);
+			checkAssessorQuery.exec();
+			checkAssessorQuery.next();
+			int assessorCount = checkAssessorQuery.value(0).toInt();
+
+			if (assessorCount == 0) {
+				QMessageBox::critical(this, "Database Error", "Assessor not found for update.");
+				return;
+			}
+
+			// UPDATE assessor
 			QSqlQuery query(db);
 			query.prepare(R"(
-            UPDATE assessor SET
-                first_name = :first_name,
-                last_name = :last_name,
-                email = :email,
-                phone = :phone,
-                street = :street,
-                city = :city,
-                province = :province,
-                postal_code = :postal_code,
-                modified_at = :modified_at
-            WHERE id = :id
-        )");
-			query.addBindValue(m_firstName);
-			query.addBindValue(m_lastName);
-			query.addBindValue(m_email);
-			query.addBindValue(m_phone);
-			query.addBindValue(QString::fromStdString(m_address.getStreet()));
-			query.addBindValue(QString::fromStdString(m_address.getCity()));
-			query.addBindValue(QString::fromStdString(m_address.getProvince()));
-			query.addBindValue(QString::fromStdString(m_address.getPostalCode()));
-			query.addBindValue(m_modifiedAt);
-			query.addBindValue(m_id);
+				UPDATE assessor SET
+					lastname = :lastname,
+					firstname = :firstname,
+					email = :email,
+					phone = :phone,
+					modified_at = :modified_at
+				WHERE id = :id
+			)");
+			query.bindValue(":lastname", m_lastName);
+			query.bindValue(":firstname", m_firstName);
+			query.bindValue(":email", m_email);
+			query.bindValue(":phone", m_phone);
+			query.bindValue(":modified_at", m_modifiedAt);
+			query.bindValue(":id", m_id);
 
 			if (!query.exec()) {
 				QMessageBox::critical(this, "Database Error", query.lastError().text());
+				return;
+			}
+
+			QSqlQuery checkQuery(db);
+			checkQuery.prepare("SELECT COUNT(*) FROM address WHERE assessor_id = :assessor_id");
+			checkQuery.bindValue(":assessor_id", m_id);
+			checkQuery.exec();
+			checkQuery.next();
+			int addressCount = checkQuery.value(0).toInt();
+
+			if (addressCount > 0) {
+				// UPDATE address
+				QSqlQuery addressQuery(db);
+				addressQuery.prepare(R"(
+					UPDATE address SET
+						street = :street,
+						city = :city,
+						province = :province,
+						postal_code = :postal_code,
+						modified_at = :modified_at
+					WHERE assessor_id = :assessor_id
+				)");
+				addressQuery.bindValue(":street", QString::fromStdString(m_address.getStreet()));
+				addressQuery.bindValue(":city", QString::fromStdString(m_address.getCity()));
+				addressQuery.bindValue(":province", QString::fromStdString(m_address.getProvince()));
+				addressQuery.bindValue(":postal_code", QString::fromStdString(m_address.getPostalCode()));
+				addressQuery.bindValue(":modified_at", m_modifiedAt);
+				addressQuery.bindValue(":assessor_id", m_id);
+
+				if (!addressQuery.exec()) {
+					QMessageBox::critical(this, "Database Error", addressQuery.lastError().text());
+				}
+				else {
+					QMessageBox::information(this, "Success", "Assessor and address updated successfully!");
+				}
 			}
 			else {
-				QMessageBox::information(this, "Success", "Assessor updated successfully!");
+				// INSERT address
+				QSqlQuery addressQuery(db);
+				addressQuery.prepare(R"(
+					INSERT INTO address (
+						assessor_id, street, city, province, postal_code, created_at, modified_at
+					) VALUES (
+						:assessor_id, :street, :city, :province, :postal_code, :created_at, :modified_at
+					)
+				)");
+				addressQuery.bindValue(":assessor_id", m_id);
+				addressQuery.bindValue(":street", QString::fromStdString(m_address.getStreet()));
+				addressQuery.bindValue(":city", QString::fromStdString(m_address.getCity()));
+				addressQuery.bindValue(":province", QString::fromStdString(m_address.getProvince()));
+				addressQuery.bindValue(":postal_code", QString::fromStdString(m_address.getPostalCode()));
+				addressQuery.bindValue(":created_at", m_createdAt);
+				addressQuery.bindValue(":modified_at", m_modifiedAt);
+
+				if (!addressQuery.exec()) {
+					QMessageBox::critical(this, "Database Error", addressQuery.lastError().text());
+				}
+				else {
+					QMessageBox::information(this, "Success", "Assessor and address updated successfully!");
+				}
 			}
 		}
+		clearForm();
 	}
 	
 	void Assessor::loadFormData() 
@@ -319,9 +399,11 @@ namespace silver {
 
 		QSqlQuery query(db);
 		query.prepare(R"(
-        SELECT first_name, last_name, email, phone, street, city, province, postal_code
-        FROM assessors
-        WHERE id = ?
+			SELECT a.firstname, a.lastname, a.phone, a.email, a.created_at, a.modified_at,
+				   ad.street, ad.city, ad.province, ad.postal_code
+			FROM assessor a
+			LEFT JOIN address ad ON ad.assessor_id = a.id
+			WHERE a.id = ?
 		)");
 		query.addBindValue(m_id);
 
@@ -330,32 +412,44 @@ namespace silver {
 			return;
 		}
 
-		// Update the internal attributes
 		setFirstName(query.value(0).toString());
 		setLastName(query.value(1).toString());
-		setEmail(query.value(2).toString());
-		setPhone(query.value(3).toString());
+		setPhone(query.value(2).toString());
+		setEmail(query.value(3).toString());
+		setCreatedAt(query.value(4).toString());
+		setModifiedAt(query.value(5).toString());
 
 		Address addr;
-		addr.setStreet(query.value(4).toString().toStdString());
-		addr.setCity(query.value(5).toString().toStdString());
-		addr.setProvince(query.value(6).toString().toStdString());
-		addr.setPostalCode(query.value(7).toString().toStdString());
+		addr.setStreet(query.value(6).toString().toStdString());
+		addr.setCity(query.value(7).toString().toStdString());
+		addr.setProvince(query.value(8).toString().toStdString());
+		addr.setPostalCode(query.value(9).toString().toStdString());
 		setAddress(addr);
 
 		// Update the UI elements
 		if (ui.firstNameLineedit) ui.firstNameLineedit->setText(m_firstName);
 		if (ui.lastNameLineEdit) ui.lastNameLineEdit->setText(m_lastName);
-		if (ui.emailLineEdit) ui.emailLineEdit->setText(m_email);
 		if (ui.phoneNumberLineEdit) ui.phoneNumberLineEdit->setText(m_phone);
+		if (ui.emailLineEdit) ui.emailLineEdit->setText(m_email);
 
 		if (ui.streetLineEdit) ui.streetLineEdit->setText(QString::fromStdString(m_address.getStreet()));
 		if (ui.cityLineEdit) ui.cityLineEdit->setText(QString::fromStdString(m_address.getCity()));
 		if (ui.provinceCbBox) {
-			int idx = ui.provinceCbBox->findText(QString::fromStdString(m_address.getProvince()));
-			ui.provinceCbBox->setCurrentIndex(idx >= 0 ? idx : 0); // Default to "N/A" if not found
+			QString dbProvince = QString::fromStdString(m_address.getProvince()).trimmed();
+			int idx = -1;
+			for (int i = 0; i < ui.provinceCbBox->count(); ++i) {
+				QString item = ui.provinceCbBox->itemText(i);
+				if (item.contains(dbProvince, Qt::CaseInsensitive)) {
+					idx = i;
+					break;
+				}
+			}
+			ui.provinceCbBox->setCurrentIndex(idx >= 0 ? idx : 0);
 		}
 		if (ui.postalCodeLineEdit) ui.postalCodeLineEdit->setText(QString::fromStdString(m_address.getPostalCode()));
+
+		if (ui.createdAtLineEdit) ui.createdAtLineEdit->setText(m_createdAt);
+		if (ui.modifiedAtLineEdit) ui.modifiedAtLineEdit->setText(m_modifiedAt);
 	}
 	
 	void Assessor::displayForm()
@@ -463,6 +557,7 @@ namespace silver {
 		case FormMode::Create:
 			if (ui.page_title) ui.page_title->setText("Create Assessor");
 			if (ui.btRegister) ui.btRegister->setVisible(true);
+			if (ui.btRegister) ui.btRegister->setText("Register");
 			if (ui.btCancel) ui.btCancel->setVisible(true);
 			if (ui.btMyCases) ui.btMyCases->setVisible(false);
 
@@ -480,6 +575,7 @@ namespace silver {
 		case FormMode::Edit:
 			if (ui.page_title) ui.page_title->setText("Edit Assessor");
 			if (ui.btRegister) ui.btRegister->setVisible(true);
+			if (ui.btRegister) ui.btRegister->setText("Save");
 			if (ui.btCancel) ui.btCancel->setVisible(true);
 			if (ui.btMyCases) ui.btMyCases->setVisible(false);
 			
@@ -497,7 +593,7 @@ namespace silver {
 		case FormMode::Detail:
 			if (ui.page_title) ui.page_title->setText("Assessor Details");
 			if (ui.btRegister) ui.btRegister->setVisible(false);
-			if (ui.btCancel) ui.btCancel->setVisible(true);
+			if (ui.btCancel) ui.btCancel->setVisible(false);
 			if (ui.btMyCases) ui.btMyCases->setVisible(true);
 
 			// Turn unavailable fields for edition
@@ -507,6 +603,10 @@ namespace silver {
 			if (ui.emailLineEdit) ui.emailLineEdit->setEnabled(false);
 			if (ui.streetLineEdit) ui.streetLineEdit->setEnabled(false);
 			if (ui.cityLineEdit) ui.cityLineEdit->setEnabled(false);
+			if (ui.provinceCbBox) {
+				int idx = ui.provinceCbBox->findText(QString::fromStdString(m_address.getProvince()));
+				ui.provinceCbBox->setCurrentIndex(idx >= 0 ? idx : 0);
+			}
 			if (ui.provinceCbBox) ui.provinceCbBox->setEnabled(false);
 			if (ui.postalCodeLineEdit) ui.postalCodeLineEdit->setEnabled(false);
 
@@ -643,7 +743,7 @@ namespace silver {
 		form.setPhone(QString::fromStdString(phone));
 		form.setCreatedAt(QString::fromStdString(createdAt));
 		form.setModifiedAt(QString::fromStdString(modifiedAt));
-		form.setAddress(Address(street, city, province, postalCode));
+		form.setAddress(Address(0, 0, street, city, province, postalCode));
 
 		return is;
 	}

@@ -6,14 +6,38 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>717</width>
-    <height>505</height>
+    <width>1241</width>
+    <height>802</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QToolButton" name="btRefresh">
+     <property name="styleSheet">
+      <string notr="true">QToolButton {
+    background-color: #00008B;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: bold;
+    width: 100px;
+    height: 20px;
+}
+
+QToolButton:hover {
+    background-color: #0000FF
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Refresh</string>
+     </property>
+    </widget>
+   </item>
    <item>
     <widget class="QGroupBox" name="searchBox">
      <property name="title">
@@ -52,9 +76,21 @@ QToolButton:hover {
    </item>
    <item>
     <widget class="QTableWidget" name="tableWidget">
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+     </property>
      <property name="columnCount">
       <number>6</number>
      </property>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>180</number>
+     </attribute>
+     <attribute name="horizontalHeaderStretchLastSection">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="verticalHeaderDefaultSectionSize">
+      <number>50</number>
+     </attribute>
      <column>
       <property name="text">
        <string>ID</string>

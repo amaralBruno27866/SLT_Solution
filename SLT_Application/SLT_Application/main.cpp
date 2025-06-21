@@ -16,21 +16,21 @@ int main(int argc, char *argv[])
         QMessageBox::critical(nullptr, "Database Error", db.lastError().text());
         return 1;
     }
-    QSqlQuery query(db);
 
     // Activate restrition for foreign keys in SQLite
+    QSqlQuery query(db);
     query.exec("PRAGMA foreign_keys = ON;");
 
     // Table assessor
     bool ok = query.exec(
-        "CREATE TABLE IF NOT EXISTS assessor ("
-        "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-        "lastname TEXT,"
-        "firstname TEXT,"
-        "email TEXT,"
-        "phone TEXT,"
-        "created_at TEXT,"
-        "modified_at TEXT"
+        "CREATE TABLE IF NOT EXISTS assessor("
+            "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+            "firstname TEXT,"
+            "lastname TEXT,"
+            "phone TEXT,"
+            "email TEXT,"
+            "created_at TEXT,"
+            "modified_at TEXT"
         ")"
     );
     if (!ok) {
@@ -40,14 +40,16 @@ int main(int argc, char *argv[])
 
     // Tabela address
     ok = query.exec(
-        "CREATE TABLE IF NOT EXISTS address ("
-        "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-        "assessor_id INTEGER NOT NULL,"
-        "street TEXT,"
-        "city TEXT,"
-        "province TEXT,"
-        "postal_code TEXT,"
-        "FOREIGN KEY(assessor_id) REFERENCES assessor(id) ON DELETE CASCADE"
+        "CREATE TABLE IF NOT EXISTS address("
+            "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+            "assessor_id INTEGER NOT NULL,"
+            "street TEXT,"
+            "city TEXT,"
+            "province TEXT,"
+            "postal_code TEXT,"
+            "created_at TEXT,"
+            "modified_at TEXT,"
+            "FOREIGN KEY(assessor_id) REFERENCES assessor(id) ON DELETE CASCADE"
         ")"
     );
     if (!ok) {

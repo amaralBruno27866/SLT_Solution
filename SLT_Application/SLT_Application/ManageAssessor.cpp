@@ -15,9 +15,14 @@ namespace silver {
     {
         ui.setupUi(this);
 
-        QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-        db.setDatabaseName("clinic.db");
+        QSqlDatabase db = QSqlDatabase::database();
 
+        connect(ui.btRefresh, &QToolButton::clicked, this, [this]() {
+            this->loadAssessors();
+        });
+        connect(ui.btSearch, &QToolButton::clicked, this, [this]() {
+            this->searchAssessors(ui.searchLineEdit->text());
+        });
         connect(ui.searchLineEdit, &QLineEdit::returnPressed, this, [this]() {
             this->searchAssessors(ui.searchLineEdit->text());
         });
@@ -39,6 +44,8 @@ namespace silver {
                 qDebug() << "Erro ao criar tabela:" << query.lastError().text();
             }
         }
+
+        loadAssessors();
     }
     void ManageAssessor::loadAssessors()
     {
@@ -100,7 +107,7 @@ namespace silver {
 		// Sequence for showing the form
         form->setAttribute(Qt::WA_DeleteOnClose);
         form->setWindowFlag(Qt::Window);
-        form->setFixedSize(500, 400);
+        form->setFixedSize(980, 620);
         form->show();
     }
 
@@ -151,9 +158,23 @@ namespace silver {
         }
 
         // Execute the delete query
+        // Delete address first
+        QSqlQuery addressQuery(db);
+        addressQuery.prepare("DELETE FROM address WHERE assessor_id = ?");
+        addressQuery.addBindValue(id);
+        if (!addressQuery.exec()) {
+            showError("Failed to delete address: " + addressQuery.lastError().text());
+            return;
+        }
+
+        // Now delete the assessor
         QSqlQuery query(db);
         query.prepare("DELETE FROM assessor WHERE id = ?");
         query.addBindValue(id);
+        if (!query.exec()) {
+            showError("Failed to delete assessor: " + query.lastError().text());
+            return;
+        }
 
         if (!query.exec()) {
             showError("Failed to delete assessor: " + query.lastError().text());
@@ -194,12 +215,10 @@ namespace silver {
 
         conditions << "firstname LIKE ?";
         params << "%" + trimmed + "%";
-		conditions << "lastname LIKE ?";
-		params << "%" + trimmed + "%";
-        conditions << "phone LIKE ?";
-		params << "%" + trimmed + "%";
+        conditions << "lastname LIKE ?";
+        params << "%" + trimmed + "%";
 
-		sql += conditions.join(" OR ");
+        sql += conditions.join(" OR ");
 
         QSqlQuery query(db);
         query.prepare(sql);
