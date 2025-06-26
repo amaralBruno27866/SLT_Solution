@@ -96,6 +96,7 @@
     <ClCompile Include="Utils.cpp" />
     <QtRcc Include="SLT_Application.qrc" />
     <QtUic Include="ActionButtons.ui" />
+    <QtUic Include="ClientForm.ui" />
     <QtUic Include="MyCases.ui" />
     <QtUic Include="AssessorForm.ui" />
     <QtUic Include="ManageAssessor.ui" />
