@@ -93,10 +93,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ActionButtons.cpp" />
+    <ClCompile Include="Client.cpp" />
     <ClCompile Include="Utils.cpp" />
     <QtRcc Include="SLT_Application.qrc" />
     <QtUic Include="ActionButtons.ui" />
     <QtUic Include="ClientForm.ui" />
+    <QtUic Include="ManageClient.ui" />
     <QtUic Include="MyCases.ui" />
     <QtUic Include="AssessorForm.ui" />
     <QtUic Include="ManageAssessor.ui" />
@@ -119,6 +121,7 @@
   <ItemGroup>
     <QtMoc Include="ActionButtons.h" />
     <ClInclude Include="Address.h" />
+    <QtMoc Include="Client.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
