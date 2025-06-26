@@ -86,6 +86,8 @@ namespace silver {
 		return *this;
 	}
 
+	Client::~Client() = default;
+
 	int Client::getId() const {
 		return m_id;
 	}
