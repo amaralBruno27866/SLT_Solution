@@ -85,4 +85,45 @@ namespace silver {
 		}
 		return *this;
 	}
+
+	int Client::getId() const {
+		return m_id;
+	}
+
+	QString Client::getFirstName() const {
+		return m_firstName;
+	}
+
+	QString Client::getLastName() const {
+		return m_lastName;
+	}
+
+	QString Client::getEmail() const {
+		return m_email;
+	}
+
+	QString Client::getPhone() const {
+		return m_phone;
+	}
+
+	QString Client::getCreatedAt() const {
+		return m_createdAt;
+	}
+
+	QString Client::getModifiedAt() const {
+		return m_modifiedAt;
+	}
+
+	Address Client::getAddress() const {
+		return m_address;
+	}
+
+	void Client::setId(int id) {
+		m_id = id;
+	}
+
+	void Client::setFirstName(const QString& firstName) {
+		string trimmed = utils::trim(firstName.toStdString());
+		m_firstName = QString::fromStdString(utils::capitalizeWords(trimmed));
+	}
 }
