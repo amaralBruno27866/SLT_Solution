@@ -88,44 +88,97 @@ namespace silver {
 
 	Client::~Client() = default;
 
-	int Client::getId() const {
+	int Client::getId() const 
+	{
 		return m_id;
 	}
 
-	QString Client::getFirstName() const {
+	QString Client::getFirstName() const 
+	{
 		return m_firstName;
 	}
 
-	QString Client::getLastName() const {
+	QString Client::getLastName() const 
+	{
 		return m_lastName;
 	}
 
-	QString Client::getEmail() const {
+	QString Client::getEmail() const 
+	{
 		return m_email;
 	}
 
-	QString Client::getPhone() const {
+	QString Client::getPhone() const 
+	{
 		return m_phone;
 	}
 
-	QString Client::getCreatedAt() const {
+	QString Client::getCreatedAt() const 
+	{
 		return m_createdAt;
 	}
 
-	QString Client::getModifiedAt() const {
+	QString Client::getModifiedAt() const 
+	{
 		return m_modifiedAt;
 	}
 
-	Address Client::getAddress() const {
+	Address Client::getAddress() const 
+	{
 		return m_address;
 	}
 
-	void Client::setId(int id) {
+	void Client::setId(int id) 
+	{
 		m_id = id;
 	}
 
-	void Client::setFirstName(const QString& firstName) {
+	void Client::setFirstName(const QString& firstName) 
+	{
 		string trimmed = utils::trim(firstName.toStdString());
 		m_firstName = QString::fromStdString(utils::capitalizeWords(trimmed));
+	}
+
+	void Client::setLastName(const QString& lastName) 
+	{
+		string trimmed = utils::trim(lastName.toStdString());
+		m_lastName = QString::fromStdString(utils::capitalizeWords(trimmed));
+	}
+
+	void Client::setEmail(const QString& email)
+	{
+		string trimmed = utils::trim(email.toStdString());
+		if (utils::isValidEmail(trimmed)) {
+			m_email = QString::fromStdString(trimmed);
+		}
+		else {
+			m_email.clear();
+		}
+	}
+
+	void Client::setPhone(const QString& phone)
+	{
+		string trimmed = utils::trim(phone.toStdString());
+		if (utils::isValidPhoneNumber(trimmed)) {
+			m_phone = QString::fromStdString(trimmed);
+		}
+		else {
+			m_phone.clear();
+		}
+	}
+
+	void Client::setCreatedAt(const QString& createdAt)
+	{
+		m_createdAt = createdAt;
+	}
+
+	void Client::setModifiedAt(const QString& modifiedAt)
+	{
+		m_modifiedAt = modifiedAt;
+	}
+
+	void Client::setAddress(const Address& address)
+	{
+		m_address = address;
 	}
 }
