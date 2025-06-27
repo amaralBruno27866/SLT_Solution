@@ -181,4 +181,27 @@ namespace silver {
 	{
 		m_address = address;
 	}
+
+	void Client::clearForm()
+	{
+		m_firstName.clear();
+		m_lastName.clear();
+		m_email.clear();
+		m_phone.clear();
+		m_createdAt.clear();
+		m_modifiedAt.clear();
+		m_address = Address();
+
+		// Personal information section
+		if (ui.firstNameLineedit) ui.firstNameLineedit->clear();
+		if (ui.lastNameLineEdit) ui.lastNameLineEdit->clear();
+		if (ui.phoneNumberLineEdit) ui.phoneNumberLineEdit->clear();
+		if (ui.emailLineEdit) ui.emailLineEdit->clear();
+
+		// Address information section
+		if (ui.streetLineEdit) ui.streetLineEdit->clear();
+		if (ui.cityLineEdit) ui.cityLineEdit->clear();
+		if (ui.provinceCbBox) ui.provinceCbBox->setCurrentIndex(0);
+		if (ui.postalCodeLineEdit) ui.postalCodeLineEdit->clear();
+	}
 }
