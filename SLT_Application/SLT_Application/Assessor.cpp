@@ -292,6 +292,8 @@ namespace silver {
 			checkAssessorQuery.bindValue(":id", m_id);
 			checkAssessorQuery.exec();
 			checkAssessorQuery.next();
+
+			// Check if assessor exists
 			int assessorCount = checkAssessorQuery.value(0).toInt();
 
 			if (assessorCount == 0) {
@@ -327,6 +329,8 @@ namespace silver {
 			checkQuery.bindValue(":assessor_id", m_id);
 			checkQuery.exec();
 			checkQuery.next();
+
+			// Check if address exists
 			int addressCount = checkQuery.value(0).toInt();
 
 			if (addressCount > 0) {
@@ -579,7 +583,7 @@ namespace silver {
 			if (ui.btCancel) ui.btCancel->setVisible(true);
 			if (ui.btMyCases) ui.btMyCases->setVisible(false);
 			
-			// Turn available fields for creation
+			// Turn available fields for editing
 			if (ui.firstNameLineedit) ui.firstNameLineedit->setEnabled(true);
 			if (ui.lastNameLineEdit) ui.lastNameLineEdit->setEnabled(true);
 			if (ui.emailLineEdit) ui.emailLineEdit->setEnabled(true);
