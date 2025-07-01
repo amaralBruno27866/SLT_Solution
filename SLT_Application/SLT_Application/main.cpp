@@ -56,6 +56,23 @@ int main(int argc, char *argv[])
         QMessageBox::critical(nullptr, "Database Error", query.lastError().text());
         return 1;
     }
+
+    // Table client
+    ok = query.exec(
+        "CREATE TABLE IF NOT EXISTS client("
+        "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+        "firstname TEXT,"
+        "lastname TEXT,"
+        "phone TEXT,"
+        "email TEXT,"
+        "created_at TEXT,"
+        "modified_at TEXT"
+        ")"
+    );
+    if (!ok) {
+        QMessageBox::critical(nullptr, "Database Error", query.lastError().text());
+        return 1;
+    }
     // --- End of database creation ---
 
     silver::SLT_Application w;

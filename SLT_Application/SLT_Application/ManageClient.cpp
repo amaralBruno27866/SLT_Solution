@@ -32,20 +32,6 @@ namespace silver {
 		if (!db.open()) {
 			qDebug() << "Error opening database:" << db.lastError().text();
 		}
-		else {
-			QSqlQuery query;
-			bool ok = query.exec(
-				"CREATE TABLE IF NOT EXISTS client ("
-				"id INTEGER PRIMARY KEY AUTOINCREMENT,"
-				"lastname TEXT,"
-				"firstname TEXT,"
-				"email TEXT,"
-				"phone TEXT)"
-			);
-			if (!ok) {
-				qDebug() << "Error creating table:" << query.lastError().text();
-			}
-		}
 
 		loadClient();
 	}
@@ -71,7 +57,7 @@ namespace silver {
 
 		// Populate the table widget with client data
 		int row = 0;
-		while (query.exec()) {
+		while (query.next()) {
 			ui.tableWidget->insertRow(row);
 			ui.tableWidget->setItem(row, 0, new QTableWidgetItem(query.value(0).toString())); // ID
 			ui.tableWidget->setItem(row, 1, new QTableWidgetItem(query.value(1).toString())); // Last Name
@@ -177,11 +163,6 @@ namespace silver {
 		QSqlQuery query(db);
 		query.prepare("DELETE FROM client WHERE id = ?");
 		query.addBindValue(id);
-		if (!query.exec()) {
-			showError("Failed to delete client: " + query.lastError().text());
-			return;
-		}
-
 		if (!query.exec()) {
 			showError("Failed to delete client: " + query.lastError().text());
 			return;

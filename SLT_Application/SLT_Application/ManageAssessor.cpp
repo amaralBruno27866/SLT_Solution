@@ -32,20 +32,6 @@ namespace silver {
         if (!db.open()) {
             qDebug() << "Error opening database:" << db.lastError().text();
         }
-        else {
-            QSqlQuery query;
-            bool ok = query.exec(
-                "CREATE TABLE IF NOT EXISTS assessor ("
-                "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                "lastname TEXT,"
-                "firstname TEXT,"
-                "email TEXT,"
-                "phone TEXT)"
-            );
-            if (!ok) {
-                qDebug() << "Erro ao criar tabela:" << query.lastError().text();
-            }
-        }
 
         loadAssessors();
     }
@@ -176,11 +162,6 @@ namespace silver {
         QSqlQuery query(db);
         query.prepare("DELETE FROM assessor WHERE id = ?");
         query.addBindValue(id);
-        if (!query.exec()) {
-            showError("Failed to delete assessor: " + query.lastError().text());
-            return;
-        }
-
         if (!query.exec()) {
             showError("Failed to delete assessor: " + query.lastError().text());
             return;
