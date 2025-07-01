@@ -86,9 +86,11 @@ namespace silver {
             connect(actions->viewButton(), &QToolButton::clicked, this, [this, id]() {
                 this->viewAssessorDetails(id);
             });
+
             connect(actions->editButton(), &QToolButton::clicked, this, [this, id]() {
                 this->editAssessor(id);
             });
+
             connect(actions->deleteButton(), &QToolButton::clicked, this, [this, id]() {
                 this->deleteAssessor(id);
             });
