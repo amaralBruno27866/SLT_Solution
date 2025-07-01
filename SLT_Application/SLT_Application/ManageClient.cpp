@@ -3,11 +3,11 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QDebug>
+#include <QMessageBox>
 
 #include "Utils.h"
 #include "Client.h"
 #include "ActionButtons.h"
-#include <QMessageBox>
 
 namespace silver {
 	ManageClient::ManageClient(QWidget* parent)
@@ -48,5 +48,37 @@ namespace silver {
 		}
 
 		loadClient();
+	}
+
+	void ManageClient::loadClient()
+	{
+	}
+
+	void ManageClient::addClient()
+	{
+	}
+
+	void ManageClient::editClient(int id)
+	{
+	}
+
+	void ManageClient::viewClientDetails(int id)
+	{
+	}
+
+	void ManageClient::deleteClient(int id)
+	{
+	}
+
+	void ManageClient::searchClients(const QString& filter)
+	{
+	}
+
+	void ManageClient::showError(const QString& message)
+	{
+	}
+
+	void showSuccess(const QString& message)
+	{
 	}
 }

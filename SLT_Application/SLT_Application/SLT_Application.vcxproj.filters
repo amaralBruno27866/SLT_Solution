@@ -64,6 +64,9 @@
     <ClCompile Include="Client.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ManageClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Assessor.h">
@@ -76,6 +79,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="Client.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ManageClient.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

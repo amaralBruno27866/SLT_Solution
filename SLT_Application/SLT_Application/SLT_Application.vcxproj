@@ -94,6 +94,7 @@
   <ItemGroup>
     <ClCompile Include="ActionButtons.cpp" />
     <ClCompile Include="Client.cpp" />
+    <ClCompile Include="ManageClient.cpp" />
     <ClCompile Include="Utils.cpp" />
     <QtRcc Include="SLT_Application.qrc" />
     <QtUic Include="ActionButtons.ui" />
@@ -122,6 +123,7 @@
     <QtMoc Include="ActionButtons.h" />
     <ClInclude Include="Address.h" />
     <QtMoc Include="Client.h" />
+    <QtMoc Include="ManageClient.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
