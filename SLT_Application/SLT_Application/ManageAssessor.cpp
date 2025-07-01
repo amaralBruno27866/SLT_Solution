@@ -3,11 +3,11 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QDebug>
+#include <QMessageBox>
 
 #include "Utils.h"
 #include "Assessor.h"
 #include "ActionButtons.h"
-#include <QMessageBox>
 
 namespace silver {
     ManageAssessor::ManageAssessor(QWidget* parent)
@@ -252,9 +252,11 @@ namespace silver {
             connect(actions->viewButton(), &QToolButton::clicked, this, [this, id]() {
                 this->viewAssessorDetails(id);
             });
+
             connect(actions->editButton(), &QToolButton::clicked, this, [this, id]() {
                 this->editAssessor(id);
             });
+
             connect(actions->deleteButton(), &QToolButton::clicked, this, [this, id]() {
                 this->deleteAssessor(id);
 			});
