@@ -21,7 +21,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_Form
+class Ui_ManageClient
 {
 public:
     QVBoxLayout *verticalLayout;
@@ -32,14 +32,14 @@ public:
     QToolButton *btSearch;
     QTableWidget *tableWidget;
 
-    void setupUi(QWidget *Form)
+    void setupUi(QWidget *ManageClient)
     {
-        if (Form->objectName().isEmpty())
-            Form->setObjectName("Form");
-        Form->resize(1186, 872);
-        verticalLayout = new QVBoxLayout(Form);
+        if (ManageClient->objectName().isEmpty())
+            ManageClient->setObjectName("ManageClient");
+        ManageClient->resize(1186, 872);
+        verticalLayout = new QVBoxLayout(ManageClient);
         verticalLayout->setObjectName("verticalLayout");
-        btRefresh = new QToolButton(Form);
+        btRefresh = new QToolButton(ManageClient);
         btRefresh->setObjectName("btRefresh");
         btRefresh->setStyleSheet(QString::fromUtf8("QToolButton {\n"
 "    background-color: #00008B;\n"
@@ -59,7 +59,7 @@ public:
 
         verticalLayout->addWidget(btRefresh);
 
-        searchBox = new QGroupBox(Form);
+        searchBox = new QGroupBox(ManageClient);
         searchBox->setObjectName("searchBox");
         verticalLayout_2 = new QVBoxLayout(searchBox);
         verticalLayout_2->setObjectName("verticalLayout_2");
@@ -91,7 +91,7 @@ public:
 
         verticalLayout->addWidget(searchBox);
 
-        tableWidget = new QTableWidget(Form);
+        tableWidget = new QTableWidget(ManageClient);
         if (tableWidget->columnCount() < 6)
             tableWidget->setColumnCount(6);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
@@ -116,35 +116,35 @@ public:
         verticalLayout->addWidget(tableWidget);
 
 
-        retranslateUi(Form);
+        retranslateUi(ManageClient);
 
-        QMetaObject::connectSlotsByName(Form);
+        QMetaObject::connectSlotsByName(ManageClient);
     } // setupUi
 
-    void retranslateUi(QWidget *Form)
+    void retranslateUi(QWidget *ManageClient)
     {
-        Form->setWindowTitle(QCoreApplication::translate("Form", "Form", nullptr));
-        btRefresh->setText(QCoreApplication::translate("Form", "Refresh", nullptr));
-        searchBox->setTitle(QCoreApplication::translate("Form", "Search", nullptr));
-        btSearch->setText(QCoreApplication::translate("Form", "Search", nullptr));
+        ManageClient->setWindowTitle(QCoreApplication::translate("ManageClient", "Form", nullptr));
+        btRefresh->setText(QCoreApplication::translate("ManageClient", "Refresh", nullptr));
+        searchBox->setTitle(QCoreApplication::translate("ManageClient", "Search", nullptr));
+        btSearch->setText(QCoreApplication::translate("ManageClient", "Search", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QCoreApplication::translate("Form", "ID", nullptr));
+        ___qtablewidgetitem->setText(QCoreApplication::translate("ManageClient", "ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QCoreApplication::translate("Form", "Lastname", nullptr));
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("ManageClient", "Lastname", nullptr));
         QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QCoreApplication::translate("Form", "Firstname", nullptr));
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("ManageClient", "Firstname", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = tableWidget->horizontalHeaderItem(3);
-        ___qtablewidgetitem3->setText(QCoreApplication::translate("Form", "Email", nullptr));
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("ManageClient", "Email", nullptr));
         QTableWidgetItem *___qtablewidgetitem4 = tableWidget->horizontalHeaderItem(4);
-        ___qtablewidgetitem4->setText(QCoreApplication::translate("Form", "Phone", nullptr));
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("ManageClient", "Phone", nullptr));
         QTableWidgetItem *___qtablewidgetitem5 = tableWidget->horizontalHeaderItem(5);
-        ___qtablewidgetitem5->setText(QCoreApplication::translate("Form", "Actions", nullptr));
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("ManageClient", "Actions", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class Form: public Ui_Form {};
+    class ManageClient: public Ui_ManageClient {};
 } // namespace Ui
 
 QT_END_NAMESPACE

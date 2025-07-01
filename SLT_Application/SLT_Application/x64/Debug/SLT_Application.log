@@ -1,10 +1,18 @@
 ﻿   Qt/MSBuild: 3.4.0.1
    Qt: 6.7.3
+  ActionButtons.cpp
   Client.cpp
+  Utils.cpp
+  Address.cpp
   Assessor.cpp
   ManageAssessor.cpp
   SLT_Application.cpp
+  main.cpp
+  qrc_SLT_Application.cpp
+  moc_SLT_Application.cpp
   moc_Assessor.cpp
   moc_ManageAssessor.cpp
+  moc_ActionButtons.cpp
   moc_Client.cpp
-  SLT_Application.vcxproj -> C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\x64\Debug\SLT_Application.exe
+  LINK : C:\Users\balen\Source\Repos\SLT_Solution\SLT_Application\x64\Debug\SLT_Application.exe not found or not built by the last incremental link; performing full link
+  SLT_Application.vcxproj -> C:\Users\balen\Source\Repos\SLT_Solution\SLT_Application\x64\Debug\SLT_Application.exe

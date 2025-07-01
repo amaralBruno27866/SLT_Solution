@@ -20,9 +20,11 @@ namespace silver {
         connect(ui.btRefresh, &QToolButton::clicked, this, [this]() {
             this->loadAssessors();
         });
+
         connect(ui.btSearch, &QToolButton::clicked, this, [this]() {
             this->searchAssessors(ui.searchLineEdit->text());
         });
+
         connect(ui.searchLineEdit, &QLineEdit::returnPressed, this, [this]() {
             this->searchAssessors(ui.searchLineEdit->text());
         });
@@ -47,6 +49,7 @@ namespace silver {
 
         loadAssessors();
     }
+
     void ManageAssessor::loadAssessors()
     {
 		// Clear the table widget before loading new data
