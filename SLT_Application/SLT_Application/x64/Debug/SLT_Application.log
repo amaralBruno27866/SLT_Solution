@@ -1,18 +1,6 @@
 ﻿   Qt/MSBuild: 3.4.0.1
    Qt: 6.7.3
-  ActionButtons.cpp
   Client.cpp
-  Utils.cpp
-  Address.cpp
-  Assessor.cpp
-  ManageAssessor.cpp
-  SLT_Application.cpp
-  main.cpp
-  qrc_SLT_Application.cpp
-  moc_SLT_Application.cpp
-  moc_Assessor.cpp
-  moc_ManageAssessor.cpp
-  moc_ActionButtons.cpp
-  moc_Client.cpp
-  LINK : C:\Users\balen\Source\Repos\SLT_Solution\SLT_Application\x64\Debug\SLT_Application.exe not found or not built by the last incremental link; performing full link
-  SLT_Application.vcxproj -> C:\Users\balen\Source\Repos\SLT_Solution\SLT_Application\x64\Debug\SLT_Application.exe
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Client.cpp(1,1): warning C4828: The file contains a character starting at offset 0x3ecc that is illegal in the current source character set (codepage 65001).
+C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\SLT_Application\Client.cpp(1,1): warning C4828: The file contains a character starting at offset 0x3ed8 that is illegal in the current source character set (codepage 65001).
+  SLT_Application.vcxproj -> C:\Users\balen\CodeSpace\SLT_Solution\SLT_Application\x64\Debug\SLT_Application.exe

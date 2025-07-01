@@ -24,32 +24,13 @@ int main(int argc, char *argv[])
     // Table assessor
     bool ok = query.exec(
         "CREATE TABLE IF NOT EXISTS assessor("
-            "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+            "id TEXT PRIMARY KEY,"
             "firstname TEXT,"
             "lastname TEXT,"
             "phone TEXT,"
             "email TEXT,"
             "created_at TEXT,"
             "modified_at TEXT"
-        ")"
-    );
-    if (!ok) {
-        QMessageBox::critical(nullptr, "Database Error", query.lastError().text());
-        return 1;
-    }
-
-    // Tabela address
-    ok = query.exec(
-        "CREATE TABLE IF NOT EXISTS address("
-            "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-            "assessor_id INTEGER NOT NULL,"
-            "street TEXT,"
-            "city TEXT,"
-            "province TEXT,"
-            "postal_code TEXT,"
-            "created_at TEXT,"
-            "modified_at TEXT,"
-            "FOREIGN KEY(assessor_id) REFERENCES assessor(id) ON DELETE CASCADE"
         ")"
     );
     if (!ok) {
@@ -65,6 +46,24 @@ int main(int argc, char *argv[])
         "lastname TEXT,"
         "phone TEXT,"
         "email TEXT,"
+        "created_at TEXT,"
+        "modified_at TEXT"
+        ")"
+    );
+    if (!ok) {
+        QMessageBox::critical(nullptr, "Database Error", query.lastError().text());
+        return 1;
+    }
+
+    // Tabela address
+    ok = query.exec(
+        "CREATE TABLE IF NOT EXISTS address("
+        "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+        "user_key TEXT NOT NULL,"
+        "street TEXT,"
+        "city TEXT,"
+        "province TEXT,"
+        "postal_code TEXT,"
         "created_at TEXT,"
         "modified_at TEXT"
         ")"

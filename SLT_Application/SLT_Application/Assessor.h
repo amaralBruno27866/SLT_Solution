@@ -18,7 +18,7 @@ public:
 
     explicit Assessor(QWidget* parent = nullptr);
 
-	Assessor(int id, const QString& firstName, const QString& lastName, const QString& email, const QString& phone, const Address& address, const QString& createdAt = "", const QString& modifiedAt = "", FormMode mode = FormMode::Edit);	// Copy constructos and assignment
+	Assessor(QString id, const QString& firstName, const QString& lastName, const QString& email, const QString& phone, const Address& address, const QString& createdAt = "", const QString& modifiedAt = "", FormMode mode = FormMode::Edit);	// Copy constructos and assignment
 	Assessor(const Assessor& other);
 	Assessor& operator=(const Assessor& other);
 
@@ -26,7 +26,7 @@ public:
 	~Assessor() override;
 
 	// Getters
-	int getId() const;
+	QString getId() const;
 	QString getFirstName() const;
 	QString getLastName() const;
 	QString getEmail() const;
@@ -36,7 +36,7 @@ public:
 	Address getAddress() const;
 
 	// Setters
-	void setId(int id);
+	void setId(QString id);
 	void setFirstName(const QString& firstName);
 	void setLastName(const QString& lastName);
 	void setEmail(const QString& email);
@@ -83,7 +83,7 @@ private:
 	FormMode m_mode = FormMode::Create;
 	Ui::AssessorForm ui;
 
-	int m_id;
+	QString m_id;
 	QString m_firstName;
 	QString m_lastName;
 	QString m_email;

@@ -26,7 +26,7 @@ public:
     QAction *actionAdd_a_new_assessor;
     QAction *actionManage_assessor;
     QAction *actionAdd_a_new_client;
-    QAction *actionManger_client;
+    QAction *actionManage_client;
     QAction *actionCreate_a_new_case_profile;
     QAction *actionManage_case_profile;
     QAction *actionView_forms;
@@ -66,9 +66,9 @@ public:
         actionAdd_a_new_client = new QAction(SLT_ApplicationClass);
         actionAdd_a_new_client->setObjectName("actionAdd_a_new_client");
         actionAdd_a_new_client->setFont(font1);
-        actionManger_client = new QAction(SLT_ApplicationClass);
-        actionManger_client->setObjectName("actionManger_client");
-        actionManger_client->setFont(font1);
+        actionManage_client = new QAction(SLT_ApplicationClass);
+        actionManage_client->setObjectName("actionManage_client");
+        actionManage_client->setFont(font1);
         actionCreate_a_new_case_profile = new QAction(SLT_ApplicationClass);
         actionCreate_a_new_case_profile->setObjectName("actionCreate_a_new_case_profile");
         actionCreate_a_new_case_profile->setFont(font1);
@@ -96,7 +96,7 @@ public:
         SLT_ApplicationClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(SLT_ApplicationClass);
         menuBar->setObjectName("menuBar");
-        menuBar->setGeometry(QRect(0, 0, 758, 33));
+        menuBar->setGeometry(QRect(0, 0, 758, 21));
         menuBar->setFont(font);
         menuAssessor = new QMenu(menuBar);
         menuAssessor->setObjectName("menuAssessor");
@@ -127,7 +127,7 @@ public:
         menuAssessor->addAction(actionAdd_a_new_assessor);
         menuAssessor->addAction(actionManage_assessor);
         menuClient->addAction(actionAdd_a_new_client);
-        menuClient->addAction(actionManger_client);
+        menuClient->addAction(actionManage_client);
         menuCase_Profile->addAction(actionCreate_a_new_case_profile);
         menuCase_Profile->addAction(actionManage_case_profile);
         menuForms->addAction(actionView_forms);
@@ -147,7 +147,7 @@ public:
         actionAdd_a_new_assessor->setText(QCoreApplication::translate("SLT_ApplicationClass", "Add a new assessor", nullptr));
         actionManage_assessor->setText(QCoreApplication::translate("SLT_ApplicationClass", "Manage assessor", nullptr));
         actionAdd_a_new_client->setText(QCoreApplication::translate("SLT_ApplicationClass", "Add a new client", nullptr));
-        actionManger_client->setText(QCoreApplication::translate("SLT_ApplicationClass", "Manage client", nullptr));
+        actionManage_client->setText(QCoreApplication::translate("SLT_ApplicationClass", "Manage client", nullptr));
         actionCreate_a_new_case_profile->setText(QCoreApplication::translate("SLT_ApplicationClass", "Create a new case profile", nullptr));
         actionManage_case_profile->setText(QCoreApplication::translate("SLT_ApplicationClass", "Manage case profile", nullptr));
         actionView_forms->setText(QCoreApplication::translate("SLT_ApplicationClass", "View forms", nullptr));

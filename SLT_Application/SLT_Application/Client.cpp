@@ -554,6 +554,10 @@ namespace silver {
 	{
 		m_mode = mode;
 
+		// Controle de visibilidade do frame de criação/modificação
+		if (ui.frameCreationModification)
+			ui.frameCreationModification->setVisible(mode == FormMode::Detail);
+
 		switch (mode) {
 		case FormMode::Create:
 			if (ui.page_title) ui.page_title->setText("Create Client");

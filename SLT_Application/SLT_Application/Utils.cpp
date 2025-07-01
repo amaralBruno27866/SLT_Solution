@@ -4,6 +4,9 @@
 #include <cctype>
 #include <regex>
 #include <QRegularExpression>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QVariant>
 
 namespace utils {
 
@@ -91,5 +94,22 @@ namespace utils {
 		}
 
 		return phone;
+	}
+
+	QString generateNextId(const QString& tableName, const QString& prefix, QSqlDatabase db)
+	{
+		QSqlQuery query(db);
+		query.prepare(QString("SELECT id FROM %1 WHERE id LIKE :prefix ORDER BY CAST(SUBSTR(id, :prefixLenPlus1) AS INTEGER) DESC LIMIT 1")
+			.arg(tableName));
+		query.bindValue(":prefix", prefix + "%");
+		query.bindValue(":prefixLenPlus1", QString::number(prefix.length() + 1));
+		int nextIdNum = 1;
+		if (query.exec() && query.next()) {
+			QString lastId = query.value(0).toString();
+			bool ok = false;
+			int lastNum = lastId.mid(prefix.length()).toInt(&ok);
+			if (ok) nextIdNum = lastNum + 1;
+		}
+		return QString("%1%2").arg(prefix).arg(nextIdNum);
 	}
 }

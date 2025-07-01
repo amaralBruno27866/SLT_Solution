@@ -16,7 +16,7 @@ using namespace std;
 namespace silver {
 	Assessor::Assessor(QWidget* parent)
 		: QWidget(parent),
-		m_id(0),
+		m_id(),
 		m_firstName(),
 		m_lastName(),
 		m_email(),
@@ -35,7 +35,7 @@ namespace silver {
 	}
 	
 	Assessor::Assessor(
-		int id, 
+		const QString id,
 		const QString& firstName, 
 		const QString& lastName, 
 		const QString& email, 
@@ -88,7 +88,7 @@ namespace silver {
 	
 	Assessor::~Assessor() = default;
 	
-	int Assessor::getId() const
+	QString Assessor::getId() const
 	{
 		return m_id;
 	}
@@ -128,7 +128,7 @@ namespace silver {
 		return m_address;
 	}
 	
-	void Assessor::setId(int id)
+	void Assessor::setId(const QString id)
 	{
 		m_id = id;
 	}
@@ -232,19 +232,20 @@ namespace silver {
 
 		QString now = QDateTime::currentDateTime().toString(Qt::ISODate);
 
-		if (m_id == 0) {
-			// Insert a new assessor
+		if (m_id.isEmpty()) {
+			m_id = utils::generateNextId("assessor", "as-", db);
 			m_createdAt = now;
 			m_modifiedAt = now;
 
 			QSqlQuery query(db);
 			query.prepare(R"(
-            INSERT INTO assessor (
-				firstname, lastname, phone, email, created_at, modified_at
-			) VALUES (
-				:firstname, :lastname, :phone, :email, :created_at, :modified_at
-			)
-        )");
+				INSERT INTO assessor (
+					id, firstname, lastname, phone, email, created_at, modified_at
+				) VALUES (
+					:id, :firstname, :lastname, :phone, :email, :created_at, :modified_at
+				)
+			)");
+			query.bindValue(":id", m_id);
 			query.bindValue(":firstname", m_firstName);
 			query.bindValue(":lastname", m_lastName);
 			query.bindValue(":phone", m_phone);
@@ -257,18 +258,16 @@ namespace silver {
 				return;
 			}
 
-			m_id = query.lastInsertId().toInt();
-
 			// Insert a new address
 			QSqlQuery addressQuery(db);
 			addressQuery.prepare(R"(
-			INSERT INTO address (
-				assessor_id, street, city, province, postal_code, created_at, modified_at
-			) VALUES (
-				:assessor_id, :street, :city, :province, :postal_code, :created_at, :modified_at
-			)
-        )");
-			addressQuery.bindValue(":assessor_id", m_id);
+				INSERT INTO address (
+					user_key, street, city, province, postal_code, created_at, modified_at
+				) VALUES (
+					:user_key, :street, :city, :province, :postal_code, :created_at, :modified_at
+				)
+			)");
+			addressQuery.bindValue(":user_key", m_id);
 			addressQuery.bindValue(":street", QString::fromStdString(m_address.getStreet()));
 			addressQuery.bindValue(":city", QString::fromStdString(m_address.getCity()));
 			addressQuery.bindValue(":province", QString::fromStdString(m_address.getProvince()));
@@ -325,8 +324,8 @@ namespace silver {
 			}
 
 			QSqlQuery checkQuery(db);
-			checkQuery.prepare("SELECT COUNT(*) FROM address WHERE assessor_id = :assessor_id");
-			checkQuery.bindValue(":assessor_id", m_id);
+			checkQuery.prepare("SELECT COUNT(*) FROM address WHERE user_key = :user_key");
+			checkQuery.bindValue(":user_key", m_id);
 			checkQuery.exec();
 			checkQuery.next();
 
@@ -343,14 +342,15 @@ namespace silver {
 						province = :province,
 						postal_code = :postal_code,
 						modified_at = :modified_at
-					WHERE assessor_id = :assessor_id
+					WHERE user_key = :user_key
 				)");
+				addressQuery.bindValue(":user_key", m_id);
 				addressQuery.bindValue(":street", QString::fromStdString(m_address.getStreet()));
 				addressQuery.bindValue(":city", QString::fromStdString(m_address.getCity()));
 				addressQuery.bindValue(":province", QString::fromStdString(m_address.getProvince()));
 				addressQuery.bindValue(":postal_code", QString::fromStdString(m_address.getPostalCode()));
 				addressQuery.bindValue(":modified_at", m_modifiedAt);
-				addressQuery.bindValue(":assessor_id", m_id);
+				addressQuery.bindValue(":user_key", m_id);
 
 				if (!addressQuery.exec()) {
 					QMessageBox::critical(this, "Database Error", addressQuery.lastError().text());
@@ -364,12 +364,12 @@ namespace silver {
 				QSqlQuery addressQuery(db);
 				addressQuery.prepare(R"(
 					INSERT INTO address (
-						assessor_id, street, city, province, postal_code, created_at, modified_at
+						:user_key, street, city, province, postal_code, created_at, modified_at
 					) VALUES (
-						:assessor_id, :street, :city, :province, :postal_code, :created_at, :modified_at
+						:user_key, :street, :city, :province, :postal_code, :created_at, :modified_at
 					)
 				)");
-				addressQuery.bindValue(":assessor_id", m_id);
+				addressQuery.bindValue(":user_key", m_id);				
 				addressQuery.bindValue(":street", QString::fromStdString(m_address.getStreet()));
 				addressQuery.bindValue(":city", QString::fromStdString(m_address.getCity()));
 				addressQuery.bindValue(":province", QString::fromStdString(m_address.getProvince()));
@@ -390,7 +390,7 @@ namespace silver {
 	
 	void Assessor::loadFormData() 
 	{
-		if (m_id <= 0) {
+		if (m_id.isEmpty()) {
 			QMessageBox::warning(this, "Load Error", "No valid assessor ID set for loading");
 			return;
 		}
@@ -406,7 +406,7 @@ namespace silver {
 			SELECT a.firstname, a.lastname, a.phone, a.email, a.created_at, a.modified_at,
 				   ad.street, ad.city, ad.province, ad.postal_code
 			FROM assessor a
-			LEFT JOIN address ad ON ad.assessor_id = a.id
+			LEFT JOIN address ad ON ad.user_key = a.id
 			WHERE a.id = ?
 		)");
 		query.addBindValue(m_id);
@@ -424,6 +424,7 @@ namespace silver {
 		setModifiedAt(query.value(5).toString());
 
 		Address addr;
+		addr.setUserKey(m_id.toStdString());
 		addr.setStreet(query.value(6).toString().toStdString());
 		addr.setCity(query.value(7).toString().toStdString());
 		addr.setProvince(query.value(8).toString().toStdString());
@@ -484,7 +485,7 @@ namespace silver {
 	void Assessor::handleFormReset()
 	{
 		clearForm();
-		m_id = 0; // Reset ID to indicate new entry
+		m_id.clear(); // Reset ID to indicate new entry
 		QMessageBox::information(this, "Reset", "Form has been reset. You can now enter a new assessor.");
 	}
 	
@@ -643,7 +644,7 @@ namespace silver {
 	
 	ostream& operator<<(ostream& os, const Assessor& form)
 	{
-		os << "Assessor ID: " << form.getId() << endl;
+		os << "Assessor ID: " << form.getId().toStdString() << endl;
 		os << "First Name: " << form.getFirstName().toStdString() << endl;
 		os << "Last Name: " << form.getLastName().toStdString() << endl;
 		os << "Email: " << form.getEmail().toStdString() << endl;
@@ -657,7 +658,7 @@ namespace silver {
 	
 	istream& operator>>(istream& is, Assessor& form)
 	{
-		int id = 0;
+		string id;
 		string firstName, lastName, email, phone;
 		string street, city, province, postalCode;
 		string createdAt, modifiedAt;
@@ -666,15 +667,17 @@ namespace silver {
 		string line;
 
 		// ID
+		std::string id;
 		if (getline(is, line)) {
 			auto pos = line.find(':');
 			if (pos != string::npos) {
-				id = stoi(line.substr(pos + 1));
+				id = line.substr(pos + 1);
 			}
 			else {
-				id = 0;
+				id = "";
 			}
 		}
+		form.setId(QString::fromStdString(id));
 
 		// First name
 		if (getline(is, line)) {
@@ -740,14 +743,14 @@ namespace silver {
 		}
 
 		// Set fields in the form
-		form.setId(id);
+		form.setId(QString::fromStdString(id));
 		form.setFirstName(QString::fromStdString(firstName));
 		form.setLastName(QString::fromStdString(lastName));
 		form.setEmail(QString::fromStdString(email));
 		form.setPhone(QString::fromStdString(phone));
 		form.setCreatedAt(QString::fromStdString(createdAt));
 		form.setModifiedAt(QString::fromStdString(modifiedAt));
-		form.setAddress(Address(0, 0, street, city, province, postalCode));
+		form.setAddress(Address(0, "", street, city, province, postalCode));
 
 		return is;
 	}

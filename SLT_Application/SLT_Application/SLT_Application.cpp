@@ -49,5 +49,5 @@ void silver::SLT_Application::on_actionManage_client_triggered()
     window->setAttribute(Qt::WA_DeleteOnClose);
     window->setWindowFlags(Qt::Window);
     window->setFixedSize(utils::DEFAULT_WINDOW_WIDTH, utils::DEFAULT_WINDOW_HEIGHT);
-	window->show();
+    window->show();
 }

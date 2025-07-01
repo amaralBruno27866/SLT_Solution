@@ -9,7 +9,7 @@ namespace silver {
 	class Address {
 	public:
 		Address();
-		Address(int id, int assessorId, const string& street, const string& city, const string& province, const string& postalCode);
+		Address(int id, const string& userKey, const string& street, const string& city, const string& province, const string& postalCode);
 
 		// Copy constructor and assignment
 		Address(const Address&);
@@ -20,7 +20,7 @@ namespace silver {
 
 		// Getters
 		const int& getId() const;
-		const int& getAssessorId() const;
+		const string& getUserKey() const;
 		const string& getStreet() const;
 		const string& getCity() const;
 		const string& getProvince() const;
@@ -28,7 +28,7 @@ namespace silver {
 
 		// Setters
 		void setId(int id);
-		void setAssessorId(int assessorId);
+		void setUserKey(const string& userKey);
 		void setStreet(const string& street);
 		void setCity(const string& city);
 		void setProvince(const string& province);
@@ -47,7 +47,7 @@ namespace silver {
 
 	private:
 		int m_id;
-		int m_assessorId;
+		string m_userKey;
 		string m_street;
 		string m_city;
 		string m_province;

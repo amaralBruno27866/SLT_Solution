@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <QtCore/Qt>
 #include <QWidget>
+#include <QSqlDatabase>
 
 using namespace std;
 namespace utils {
@@ -21,6 +22,7 @@ namespace utils {
     string capitalizeWords(const string& str);
     string replaceAll(string str, const string& from, const string& to);
 	QString formatPhoneNumber(const QString& phone);
+    QString generateNextId(const QString& tableName, const QString& prefix, QSqlDatabase db);
 
     template<typename T>
     void reloadList(T* obj, void (T::* method)()) {
