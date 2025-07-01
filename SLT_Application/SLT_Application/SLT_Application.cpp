@@ -1,6 +1,8 @@
 #include "SLT_Application.h"
 #include "Assessor.h"
 #include "ManageAssessor.h"
+#include "Client.h"
+#include "ManageClient.h"
 
 using namespace silver;
 
@@ -30,4 +32,22 @@ void SLT_Application::on_actionManage_assessor_triggered()
     window->setWindowFlags(Qt::Window);
     window->setFixedSize(utils::DEFAULT_WINDOW_WIDTH, utils::DEFAULT_WINDOW_HEIGHT);
     window->show();
+}
+
+void silver::SLT_Application::on_actionAdd_a_new_client_triggered()
+{
+    Client* window = new Client(this);
+    window->setAttribute(Qt::WA_DeleteOnClose);
+    window->setWindowFlags(Qt::Window);
+    window->setFixedSize(utils::DEFAULT_WINDOW_WIDTH, utils::DEFAULT_WINDOW_HEIGHT);
+	window->show();
+}
+
+void silver::SLT_Application::on_actionManage_client_triggered()
+{
+    ManageClient* window = new ManageClient(this);
+    window->setAttribute(Qt::WA_DeleteOnClose);
+    window->setWindowFlags(Qt::Window);
+    window->setFixedSize(utils::DEFAULT_WINDOW_WIDTH, utils::DEFAULT_WINDOW_HEIGHT);
+	window->show();
 }

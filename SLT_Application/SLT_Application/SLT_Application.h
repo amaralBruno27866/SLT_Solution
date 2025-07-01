@@ -16,7 +16,12 @@ namespace silver {
         Ui::SLT_ApplicationClass ui;
 
     private slots:
+		// Assessor management actions
         void on_actionAdd_a_new_assessor_triggered();
         void on_actionManage_assessor_triggered();
+
+		// Client management actions
+        void on_actionAdd_a_new_client_triggered();
+		void on_actionManage_client_triggered();
     };
 }
